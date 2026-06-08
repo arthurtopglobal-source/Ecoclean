@@ -38,7 +38,7 @@
             overflow-x: hidden;
         }
 
-        /* ─── CABEÇALHO INTELIGENTE (Centralizado) ─── */
+        /* ─── CABEÇALHO INTELIGENTE ─── */
         header {
             background-color: white;
             padding: 15px 5%;
@@ -89,14 +89,27 @@
         .btn-whatsapp { background-color: var(--whatsapp-green); }
         .btn-whatsapp:hover { background-color: #1ebe57; box-shadow: 0 5px 15px rgba(37,211,102,0.4); }
         
-        /* Classe para fazer o botão grandão pulsar */
-        .btn-pulse {
-            animation: pulse-hero 2s infinite;
-        }
+        .btn-pulse { animation: pulse-hero 2s infinite; }
         @keyframes pulse-hero {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102, 0.7); }
             50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(37,211,102, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
+        }
+
+        .btn-saiba-mais {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: auto;
+            padding-top: 15px;
+            transition: 0.3s;
+        }
+        .btn-saiba-mais:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
         }
 
         /* ─── HERO SECTION ─── */
@@ -173,15 +186,12 @@
         .service-category {
             background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-top: 5px solid var(--primary-color); transition: 0.3s;
+            display: flex; flex-direction: column;
         }
         .service-category:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .service-category i.cat-icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
-        .service-category h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color); }
-        .service-category p { color: #666; margin-bottom: 20px; font-size: 0.95rem; }
-        
-        .service-list { list-style: none; }
-        .service-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 0.95rem;}
-        .service-list li i { color: var(--whatsapp-green); flex-shrink: 0;}
+        .service-category h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--text-color); }
+        .service-category p { color: #666; font-size: 0.95rem; margin-bottom: 10px; line-height: 1.6; }
 
         /* ─── BANNERS VIP/DELIVERY ─── */
         .premium-features { 
@@ -204,20 +214,70 @@
         .vip-mini-gallery img { width: 100%; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: transform 0.3s; }
         .vip-mini-gallery img:hover { transform: scale(1.05); }
 
-        /* ─── GALERIA ANTES E DEPOIS ─── */
-        .gallery { padding: 80px 5%; background-color: white; }
-        .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .ba-card { background: var(--bg-light); border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: 0.3s; width: 100%;}
-        .ba-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-        .ba-images { display: flex; width: 100%; }
-        .ba-image-wrapper { position: relative; width: 50%; }
-        .ba-image-wrapper img { width: 100%; height: 300px; object-fit: cover; display: block; }
-        .ba-image-wrapper:first-child { border-right: 3px solid white; }
-        .badge { position: absolute; top: 15px; left: 15px; padding: 5px 12px; border-radius: 5px; font-weight: bold; color: white; font-size: 0.85rem; text-transform: uppercase; z-index: 10; }
-        .badge-antes { background-color: var(--danger-red); }
-        .badge-depois { background-color: var(--whatsapp-green); }
-        .ba-caption { padding: 20px; text-align: center; font-weight: bold; color: var(--primary-color); font-size: 1.1rem; display: flex; flex-direction: column; }
-        .ba-caption span { font-size: 0.9rem; color: #666; font-weight: normal; margin-top: 5px; }
+        /* ─── QUALIDADE ECOCLEAN (CARROSSEL FOTOS GRANDES E CLICÁVEIS) ─── */
+        .quality-section { padding: 80px 0; background-color: white; overflow: hidden; }
+        .quality-section .section-title, .quality-section .section-subtitle { padding: 0 5%; }
+        /* Tamanho maior das fotos de qualidade */
+        .quality-card { 
+            width: 600px; 
+            height: 400px; 
+            flex-shrink: 0; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .quality-card::after {
+            content: '\f0b2'; /* Ícone de expandir do FontAwesome */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            opacity: 0;
+            transition: 0.3s;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+        .quality-card:hover::after { opacity: 1; }
+        .quality-card img { 
+            width: 100%; 
+            height: 100%; 
+            display: block; 
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .quality-card:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.8);
+        }
+
+        /* ─── MODAL (LIGHTBOX) PARA IMAGENS ─── */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            padding-top: 50px; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(5px);
+            align-items: center; justify-content: center;
+        }
+        .modal-content {
+            margin: auto; display: block; width: 90%; max-width: 1000px; 
+            max-height: 85vh; object-fit: contain; border-radius: 10px;
+            animation: zoom 0.3s ease;
+        }
+        @keyframes zoom { from {transform:scale(0.8)} to {transform:scale(1)} }
+        .close-modal {
+            position: absolute; top: 20px; right: 35px; color: #f1f1f1; 
+            font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s;
+            z-index: 2001;
+        }
+        .close-modal:hover { color: var(--secondary-color); }
 
         /* ─── FAQ ─── */
         .faq-section { padding: 80px 5%; background-color: var(--bg-light); }
@@ -233,29 +293,28 @@
         .equipment-section { padding: 80px 5%; background-color: white; }
         .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
         .equipment-card { 
-            background: var(--bg-light); 
-            padding: 40px 30px; 
-            border-radius: 15px; 
-            text-align: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-            transition: 0.3s; 
-            border-bottom: 4px solid var(--secondary-color);
+            background: var(--bg-light); padding: 40px 30px; border-radius: 15px; text-align: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid var(--secondary-color);
         }
         .equipment-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .equipment-card i { font-size: 3.5rem; color: var(--secondary-color); margin-bottom: 20px; }
         .equipment-card h3 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 15px; }
         .equipment-card p { color: #555; font-size: 0.95rem; line-height: 1.6;}
 
-        /* ─── CARROSSEL AVALIAÇÕES ─── */
+        /* ─── CARROSSEL REVIEWS E FOTOS (LÓGICA COMPARTILHADA) ─── */
         .social-proof { padding: 80px 0; background-color: var(--bg-light); overflow: hidden; }
         .social-proof .section-title, .social-proof .section-subtitle { padding: 0 5%; }
         .reviews-strip { display: flex; gap: 20px; padding: 20px 0; overflow: hidden; white-space: nowrap; position: relative; max-width: 100vw; }
-        .reviews-strip::before, .reviews-strip::after { content: ''; position: absolute; top: 0; width: 50px; height: 100%; z-index: 2; }
-        .reviews-strip::before { left: 0; background: linear-gradient(to right, var(--bg-light), transparent); }
-        .reviews-strip::after { right: 0; background: linear-gradient(to left, var(--bg-light), transparent); }
-        .reviews-track { display: flex; gap: 20px; animation: scrollTrack 30s linear infinite; }
-        .reviews-strip:hover .reviews-track { animation-play-state: paused; }
+        .reviews-strip::before, .reviews-strip::after { content: ''; position: absolute; top: 0; width: 50px; height: 100%; z-index: 2; pointer-events: none;}
         
+        .bg-light-strip::before { left: 0; background: linear-gradient(to right, var(--bg-light), transparent); }
+        .bg-light-strip::after { right: 0; background: linear-gradient(to left, var(--bg-light), transparent); }
+        
+        .bg-white-strip::before { left: 0; background: linear-gradient(to right, white, transparent); }
+        .bg-white-strip::after { right: 0; background: linear-gradient(to left, white, transparent); }
+
+        .reviews-track { display: flex; gap: 20px; animation: scrollTrack 35s linear infinite; }
+        .reviews-strip:hover .reviews-track { animation-play-state: paused; } /* Para ao passar o mouse */
         @keyframes scrollTrack { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         .review-card { width: 280px; flex-shrink: 0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;}
@@ -274,17 +333,15 @@
         .footer-link:hover { color: var(--secondary-color); transform: translateX(5px); }
         .footer-bottom { text-align: center; color: #888; font-size: 0.9rem; }
 
-        /* ─── WHATSAPP FLUTUANTE PULSANTE ─── */
+        /* ─── WHATSAPP FLUTUANTE ─── */
         .floating-whatsapp {
             position: fixed; bottom: 30px; right: 30px;
             background-color: var(--whatsapp-green); color: white;
             padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold;
             box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 1000; display: flex; align-items: center; gap: 10px; font-size: 1.1rem;
-            animation: pulse-wa 2s infinite;
-            transition: 0.3s;
+            animation: pulse-wa 2s infinite; transition: 0.3s;
         }
         .floating-whatsapp:hover { transform: scale(1.05); animation: none; background-color: #1ebe57;}
-        
         @keyframes pulse-wa {
             0% { box-shadow: 0 0 0 0 rgba(37,211,102, 0.5); }
             70% { box-shadow: 0 0 0 15px rgba(37,211,102, 0); }
@@ -295,30 +352,25 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* ─── RESPONSIVIDADE EXTREMA ─── */
+        /* ─── RESPONSIVIDADE ─── */
         @media (max-width: 900px) {
             .hero { padding-top: 140px; }
             .hero h1 { font-size: 2.5rem; }
             .review-card { width: 240px; }
-            .ba-image-wrapper img { height: 250px; }
+            .quality-card { width: 450px; height: 300px; }
         }
         @media (max-width: 600px) {
             .banner-header { flex-direction: column; text-align: center; }
             .banner-header i { margin-bottom: 10px; }
             .floating-whatsapp { bottom: 20px; right: 20px; padding: 15px; border-radius: 50%; }
             .floating-whatsapp span { display: none; }
-            
-            /* Header Mobile Ajustado */
             header { padding: 15px; justify-content: center; } 
-            
             .hero { padding-top: 150px; }
             .hero h1 { font-size: 2.2rem; }
-            
             .vip-mini-gallery img { height: 70px; }
-            .ba-images { flex-direction: column; }
-            .ba-image-wrapper { width: 100%; }
-            .ba-image-wrapper:first-child { border-right: none; border-bottom: 3px solid white; }
-            .ba-image-wrapper img { height: 220px; }
+            .quality-card { width: 320px; height: 240px; }
+            .modal-content { width: 95%; max-height: 90vh; }
+            .close-modal { top: 10px; right: 20px; font-size: 35px; }
         }
     </style>
 </head>
@@ -342,49 +394,51 @@
         <p class="reveal">A EcoClean devolve a aparência de novo ao seu tapete, sofá e poltrona. Atendimento residencial com busca e entrega, soluções para auditórios e uma Sala VIP exclusiva para o seu conforto.</p>
         
         <div class="reveal">
-            <!-- Botão grandão com pulsação -->
             <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-whatsapp btn-pulse" style="font-size: 1.2rem; padding: 18px 35px;">
                 <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento Grátis
             </a>
         </div>
     </section>
 
+    <!-- NOSSOS SERVIÇOS REFORMULADO -->
     <section class="services-section">
-        <h2 class="section-title reveal">Soluções Completas em Higienização</h2>
-        <p class="section-subtitle reveal">Muito além de limpeza, entregamos saúde e renovação para a sua casa ou empresa.</p>
+        <h2 class="section-title reveal">Nossos Serviços</h2>
+        <p class="section-subtitle reveal">Soluções completas para limpeza, proteção e conservação dos seus estofados.</p>
         
         <div class="services-grid">
             <div class="service-category reveal">
-                <i class="fa-solid fa-rug cat-icon"></i>
-                <h3>Lavagem de Tapetes</h3>
-                <p>Nosso grande carro-chefe. Tratamento especializado para todos os tipos de fios e tecidos, eliminando ácaros, manchas e maus odores.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Secagem em ambiente controlado</li>
-                    <li><i class="fa-solid fa-check"></i> Revitalização das cores</li>
-                    <li><i class="fa-solid fa-check"></i> Eliminação de odor de pets</li>
-                </ul>
+                <i class="fa-solid fa-couch cat-icon"></i>
+                <h3>Higienização de Estofados</h3>
+                <p>Limpeza profunda que remove ácaros, fungos e bactérias, devolvendo aparência, conforto e segurança ao seu estofado.</p>
+                <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Estofados." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             
             <div class="service-category reveal" style="transition-delay: 0.1s;">
-                <i class="fa-solid fa-couch cat-icon"></i>
-                <h3>Sofás, Poltronas e Persianas</h3>
-                <p>Método de extração profunda que devolve o conforto da sua sala sem danificar o material original.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Sofás e Poltronas</li>
-                    <li><i class="fa-solid fa-check"></i> Colchões e Camas</li>
-                    <li><i class="fa-solid fa-check"></i> Lavagem de Persianas</li>
-                </ul>
+                <i class="fa-solid fa-bed cat-icon"></i>
+                <h3>Higienização de Colchões</h3>
+                <p>Elimine alérgenos invisíveis e tenha noites de sono mais saudáveis, tranquilas e seguras para toda a família.</p>
+                <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Colchões." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="service-category reveal" style="transition-delay: 0.2s;">
-                <i class="fa-solid fa-building-user cat-icon"></i>
-                <h3>Empresas e Auditórios</h3>
-                <p>Temos estrutura e equipe técnica para higienização em grande escala, garantindo um ambiente limpo para o seu público.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Auditórios completos</li>
-                    <li><i class="fa-solid fa-check"></i> Salas de Cinema</li>
-                    <li><i class="fa-solid fa-check"></i> Cadeiras de Escritório</li>
-                </ul>
+                <i class="fa-solid fa-rug cat-icon"></i>
+                <h3>Higienização de Tapetes</h3>
+                <p>Remoção profunda de sujeira, odores e microrganismos, preservando a textura, a cor e a durabilidade do tapete.</p>
+                <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Tapetes." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-category reveal">
+                <i class="fa-solid fa-shield-halved cat-icon"></i>
+                <h3>Impermeabilização de Estofados</h3>
+                <p>Proteção avançada que cria uma barreira contra líquidos e sujeiras, facilitando a limpeza e prolongando a vida útil do estofado.</p>
+                <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Impermeabilização%20de%20Estofados." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-category reveal" style="transition-delay: 0.1s;">
+                <i class="fa-solid fa-blinds cat-icon"></i>
+                <h3>Higienização de Cortinas</h3>
+                <p>Limpeza técnica que remove poeira, ácaros e odores sem danificar o tecido, mantendo leveza e aparência renovada.</p>
+                <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Cortinas." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
 
@@ -416,51 +470,27 @@
         </div>
     </section>
 
-    <section class="gallery">
-        <h2 class="section-title reveal">Resultados que Impressionam</h2>
-        <p class="section-subtitle reveal">Veja a diferença que a higienização profunda EcoClean faz. Imagens reais.</p>
+    <!-- NOVA SEÇÃO: QUALIDADE ECOCLEAN (COM FOTOS GIGANTES E CLICÁVEIS) -->
+    <section class="quality-section">
+        <h2 class="section-title reveal">Qualidade EcoClean</h2>
+        <p class="section-subtitle reveal">Confira o resultado final dos nossos serviços. Clique nas imagens para ampliar e comprove o padrão de excelência.</p>
         
-        <div class="ba-grid">
-            <div class="ba-card reveal">
-                <div class="ba-images">
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-antes">Antes</span>
-                        <img src="https://i.imgur.com/T7g2qC6.jpg" alt="Tapete Antes">
-                    </div>
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-depois">Depois</span>
-                        <img src="https://i.imgur.com/R4HEgyI.jpg" alt="Tapete Depois">
-                    </div>
-                </div>
-                <div class="ba-caption">Higienização de Tapetes Premium <span>(Remoção total de encardido)</span></div>
-            </div>
+        <div class="reviews-strip bg-white-strip reveal">
+            <div class="reviews-track">
+                <!-- Bloco 1 -->
+                <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
+                <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
+                <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
+                
+                <!-- Bloco 2 (Para girar sem parar) -->
+                <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
+                <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
+                <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
 
-            <div class="ba-card reveal" style="transition-delay: 0.1s;">
-                <div class="ba-images">
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-antes">Antes</span>
-                        <img src="https://i.imgur.com/6TQreiE.jpg" alt="Sofá Antes">
-                    </div>
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-depois">Depois</span>
-                        <img src="https://i.imgur.com/epvG1Tk.jpg" alt="Sofá Depois">
-                    </div>
-                </div>
-                <div class="ba-caption">Revitalização de Sofás <span>(Extração profunda de ácaros)</span></div>
-            </div>
-
-            <div class="ba-card reveal" style="transition-delay: 0.2s;">
-                <div class="ba-images">
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-antes">Antes</span>
-                        <img src="https://i.imgur.com/65F90Qf.jpg" alt="Tapete com Mancha Antes">
-                    </div>
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-depois">Depois</span>
-                        <img src="https://i.imgur.com/cZAZNg5.jpg" alt="Tapete com Mancha Depois">
-                    </div>
-                </div>
-                <div class="ba-caption">Remoção de Manchas Severas <span>(Tratamento especializado)</span></div>
+                <!-- Bloco 3 (Para garantir preenchimento em telas muito largas) -->
+                <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
+                <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
+                <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
             </div>
         </div>
     </section>
@@ -526,7 +556,7 @@
         <h2 class="section-title reveal">O que nossos clientes dizem</h2>
         <p class="section-subtitle reveal">A satisfação de quem já experimentou e aprovou a qualidade EcoClean.</p>
         
-        <div class="reviews-strip reveal">
+        <div class="reviews-strip bg-light-strip reveal">
             <div class="reviews-track">
                 <div class="review-card"><img src="https://i.imgur.com/9nKCwUa.png" alt="Avaliação de Cliente"></div>
                 <div class="review-card"><img src="https://i.imgur.com/MXPqU27.png" alt="Avaliação de Cliente"></div>
@@ -587,12 +617,19 @@
         </div>
     </footer>
 
-    <!-- Botão redondo que acompanha no canto inferior direito -->
+    <!-- Botão Flutuante do WhatsApp -->
     <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." class="floating-whatsapp" id="orcamento" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> <span>Chamar no WhatsApp</span>
     </a>
 
+    <!-- Modal para Expandir Imagens -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="expandedImg">
+    </div>
+
     <script>
+        // ─── CABEÇALHO COM SCROLL ───
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -602,6 +639,7 @@
             }
         });
 
+        // ─── ANIMAÇÃO DE REVEAL (Aparecer ao Rolar) ───
         function reveal() {
             var reveals = document.querySelectorAll('.reveal');
             for (var i = 0; i < reveals.length; i++) {
@@ -616,6 +654,33 @@
         }
         window.addEventListener('scroll', reveal);
         reveal();
+
+        // ─── LÓGICA DO MODAL DE IMAGENS (LIGHTBOX) ───
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("expandedImg");
+        const closeBtn = document.querySelector(".close-modal");
+        
+        // Pega apenas as imagens de dentro da seção de qualidade
+        const qualityImages = document.querySelectorAll(".quality-card img");
+
+        qualityImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            });
+        });
+
+        // Fechar ao clicar no X
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        // Fechar ao clicar fora da imagem (no fundo escuro)
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
