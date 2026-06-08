@@ -190,7 +190,6 @@
         }
         .service-category:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         
-        /* Imagem de Capa para Serviços */
         .service-image {
             width: 100%;
             height: 200px;
@@ -224,8 +223,22 @@
         .vip-mini-gallery img { width: 100%; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: transform 0.3s; }
         .vip-mini-gallery img:hover { transform: scale(1.05); }
 
-        /* ─── QUALIDADE ECOCLEAN (CARROSSEL FOTOS GRANDES E CLICÁVEIS) ─── */
-        .quality-section { padding: 80px 0; background-color: white; overflow: hidden; }
+        /* ─── SESSÃO SOBRE A ECOCLEAN ─── */
+        .about-section { padding: 80px 5%; background-color: white; }
+        .about-container { max-width: 1200px; margin: 0 auto; }
+        .about-header { text-align: center; margin-bottom: 50px; }
+        .about-content { color: #555; font-size: 1.05rem; line-height: 1.8; text-align: justify; }
+        .about-content strong { color: var(--primary-color); }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 40px 0; }
+        .about-card { background: var(--bg-light); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--secondary-color); transition: 0.3s; }
+        .about-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .about-card h4 { color: var(--primary-color); margin-bottom: 12px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .about-card i { color: var(--secondary-color); font-size: 1.5rem; }
+        .about-footer-text { background: var(--bg-light); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid #eee; }
+        .about-footer-text h3 { color: var(--primary-color); margin-bottom: 15px; }
+
+        /* ─── QUALIDADE ECOCLEAN (CARROSSEL) ─── */
+        .quality-section { padding: 80px 0; background-color: var(--bg-light); overflow: hidden; }
         .quality-section .section-title, .quality-section .section-subtitle { padding: 0 5%; }
         .quality-card { 
             width: 600px; 
@@ -289,58 +302,34 @@
         .close-modal:hover { color: var(--secondary-color); }
 
         /* ─── FAQ ─── */
-        .faq-section { padding: 80px 5%; background-color: var(--bg-light); }
+        .faq-section { padding: 80px 5%; background-color: white; }
         .faq-container { max-width: 800px; margin: 0 auto; width: 100%; }
-        details { background: white; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); overflow: hidden; transition: 0.3s; }
+        details { background: var(--bg-light); border-radius: 8px; margin-bottom: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); overflow: hidden; transition: 0.3s; }
         summary { padding: 20px; font-weight: 600; font-size: 1.1rem; color: var(--primary-color); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
         summary::-webkit-details-marker { display: none; }
         summary::after { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--secondary-color); transition: 0.3s; flex-shrink: 0;}
         details[open] summary::after { transform: rotate(180deg); }
         .faq-answer { padding: 0 20px 20px; color: #555; line-height: 1.7; border-top: 1px solid #eee; margin-top: 10px; padding-top: 15px; }
 
-        /* ─── EQUIPAMENTOS E TECNOLOGIA ─── */
-        .equipment-section { padding: 80px 5%; background-color: white; }
-        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .equipment-card { 
-            background: var(--bg-light); padding: 40px 30px; border-radius: 15px; text-align: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid var(--secondary-color);
-        }
-        .equipment-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .equipment-card i { font-size: 3.5rem; color: var(--secondary-color); margin-bottom: 20px; }
-        .equipment-card h3 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 15px; }
-        .equipment-card p { color: #555; font-size: 0.95rem; line-height: 1.6;}
-
         /* ─── CARROSSEL REVIEWS E FOTOS ─── */
-        .social-proof { padding: 80px 0; background-color: var(--bg-light); overflow: hidden; }
-        .social-proof .section-title, .social-proof .section-subtitle { padding: 0 5%; }
         .reviews-strip { display: flex; gap: 20px; padding: 20px 0; overflow: hidden; white-space: nowrap; position: relative; max-width: 100vw; }
         .reviews-strip::before, .reviews-strip::after { content: ''; position: absolute; top: 0; width: 50px; height: 100%; z-index: 2; pointer-events: none;}
-        
         .bg-light-strip::before { left: 0; background: linear-gradient(to right, var(--bg-light), transparent); }
         .bg-light-strip::after { right: 0; background: linear-gradient(to left, var(--bg-light), transparent); }
-        
-        .bg-white-strip::before { left: 0; background: linear-gradient(to right, white, transparent); }
-        .bg-white-strip::after { right: 0; background: linear-gradient(to left, white, transparent); }
-
         .reviews-track { display: flex; gap: 20px; animation: scrollTrack 35s linear infinite; }
         .reviews-strip:hover .reviews-track { animation-play-state: paused; }
         @keyframes scrollTrack { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        .review-card { width: 280px; flex-shrink: 0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;}
-        .review-card img { width: 100%; display: block; object-fit: cover;}
-
-        .review-cta { margin-top: 40px; text-align: center; background: white; padding: 40px 20px; border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto; width: 90%; box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
-        .review-cta h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.8rem; }
-        .btn-google { background-color: white; color: #333; border: 2px solid #ddd; font-weight: bold; padding: 12px 30px; border-radius: 50px; display: inline-block; text-decoration: none; transition: 0.3s; margin-top: 15px; max-width: 100%; white-space: normal;}
-        .btn-google:hover { border-color: #4285F4; background-color: #f4f8ff; transform: translateY(-2px); }
-        
         /* ─── RODAPÉ ─── */
         footer { background-color: #1a1a1a; color: white; padding: 60px 5% 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 40px; border-bottom: 1px solid #333; padding-bottom: 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 40px; border-bottom: 1px solid #333; padding-bottom: 40px; }
         .footer-col h4 { color: var(--secondary-color); margin-bottom: 20px; }
         .footer-link { display: flex; align-items: center; gap: 10px; color: #ccc; text-decoration: none; margin-bottom: 15px; transition: 0.3s; }
         .footer-link:hover { color: var(--secondary-color); transform: translateX(5px); }
         .footer-bottom { text-align: center; color: #888; font-size: 0.9rem; }
+        
+        .hours-list { list-style: none; color: #ccc; font-size: 0.95rem; line-height: 1.8; }
+        .hours-list strong { color: white; }
 
         /* ─── WHATSAPP FLUTUANTE ─── */
         .floating-whatsapp {
@@ -365,7 +354,6 @@
         @media (max-width: 900px) {
             .hero { padding-top: 140px; }
             .hero h1 { font-size: 2.5rem; }
-            .review-card { width: 240px; }
             .quality-card { width: 450px; height: 300px; }
         }
         @media (max-width: 600px) {
@@ -409,7 +397,7 @@
         </div>
     </section>
 
-    <!-- NOSSOS SERVIÇOS REFORMULADO -->
+    <!-- NOSSOS SERVIÇOS -->
     <section class="services-section">
         <h2 class="section-title reveal">Nossos Serviços</h2>
         <p class="section-subtitle reveal">Soluções completas para limpeza, proteção e conservação dos seus estofados.</p>
@@ -437,7 +425,8 @@
             </div>
 
             <div class="service-category reveal">
-                <video src="https://i.imgur.com/wF509mC.mp4" autoplay loop muted playsinline class="service-image"></video>
+                <!-- Vídeo em Loop -->
+                <video src="https://i.imgur.com/qbBuncp.mp4" autoplay loop muted playsinline class="service-image"></video>
                 <h3>Impermeabilização de Estofados</h3>
                 <p>Proteção avançada que cria uma barreira contra líquidos e sujeiras, facilitando a limpeza e prolongando a vida útil do estofado.</p>
                 <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Impermeabilização%20de%20Estofados." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
@@ -448,6 +437,14 @@
                 <h3>Higienização de Cortinas</h3>
                 <p>Limpeza técnica que remove poeira, ácaros e odores sem danificar o tecido, mantendo leveza e aparência renovada.</p>
                 <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Cortinas." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- NOVO SERVIÇO -->
+            <div class="service-category reveal" style="transition-delay: 0.2s;">
+                <img src="https://i.imgur.com/BmLviFu.jpg" alt="Auditórios e Salas de Cinema" class="service-image">
+                <h3>Auditórios e Salas de Cinema</h3>
+                <p>Equipe técnica e equipamentos robustos para higienização em grande escala. Garantimos um ambiente limpo e impecável para o seu público.</p>
+                <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Auditórios%20e%20Cinemas." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
 
@@ -479,12 +476,54 @@
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: QUALIDADE ECOCLEAN -->
+    <!-- NOVA SESSÃO: CONHEÇA A ECOCLEAN -->
+    <section class="about-section">
+        <div class="about-container reveal">
+            <div class="about-header">
+                <h2 class="section-title">Conheça a Ecoclean Higienização</h2>
+                <h3 class="section-subtitle" style="color: var(--secondary-color); margin-bottom: 20px;">Limpeza Profunda para Residências, Empresas e Veículos</h3>
+            </div>
+            
+            <div class="about-content">
+                <p>Se você está em busca de uma empresa especializada em higienização de estofados para residências, empresas e veículos em São Luís, a <strong>Ecoclean Higienização</strong> é a escolha certa para você. Com anos de experiência no mercado, oferecemos um serviço de qualidade e eficiência, garantindo a satisfação de nossos clientes e proporcionando uma limpeza profunda e duradoura.</p>
+                <p style="margin-top: 15px;">Trabalhamos com uma equipe de profissionais altamente qualificados e equipamentos modernos. Utilizamos produtos específicos para remover sujeira, manchas e odores, proporcionando um ambiente mais saudável para você, sua família e seus colaboradores.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <h4><i class="fa-solid fa-house-chimney"></i> Estofados Residenciais</h4>
+                    <p>Realizamos a higienização de sofás, poltronas, colchões e tapetes, garantindo um lar mais limpo e saudável. Nossa técnica de limpeza profunda remove ácaros, bactérias e sujeiras incrustadas, promovendo total conforto.</p>
+                </div>
+                
+                <div class="about-card">
+                    <h4><i class="fa-solid fa-building"></i> Estofados Comerciais</h4>
+                    <p>Cuidamos da limpeza de cadeiras de escritório, divisórias e mobiliários em ambientes corporativos, melhorando o ambiente de trabalho e prolongando a vida útil dos seus móveis, contribuindo para um local mais agradável e profissional.</p>
+                </div>
+
+                <div class="about-card">
+                    <h4><i class="fa-solid fa-car"></i> Estofados Automotivos</h4>
+                    <p>Renovamos completamente o interior do seu carro com serviços de higienização de bancos, carpetes e estofamentos internos. Removemos sujeiras profundas e manchas, melhorando a aparência e proporcionando um ambiente interno mais saudável.</p>
+                </div>
+            </div>
+
+            <div class="about-footer-text">
+                <h3>Limpeza Profunda e Resultados Garantidos</h3>
+                <p class="about-content" style="text-align: center; max-width: 900px; margin: 0 auto 20px;">
+                    Nossa empresa se destaca pela limpeza profunda e eficaz de estofados, carpetes e tapetes de diversos materiais e estilos. Seja para residências, escritórios ou estabelecimentos comerciais, a Ecoclean Higienização está preparada para superar expectativas.
+                </p>
+                <p class="about-content" style="text-align: center; max-width: 900px; margin: 0 auto;">
+                    <strong>Compromisso com a Satisfação do Cliente:</strong> A sua satisfação é a nossa prioridade. Estamos sempre em busca de aprimorar nossos serviços e garantir a excelência. Entre em contato conosco e solicite um orçamento. Conte conosco para uma limpeza de alta qualidade!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUALIDADE ECOCLEAN (CARROSSEL FOTOS GRANDES E CLICÁVEIS) -->
     <section class="quality-section">
         <h2 class="section-title reveal">Qualidade EcoClean</h2>
         <p class="section-subtitle reveal">Confira o resultado final dos nossos serviços. Clique nas imagens para ampliar e comprove o padrão de excelência.</p>
         
-        <div class="reviews-strip bg-white-strip reveal">
+        <div class="reviews-strip bg-light-strip reveal">
             <div class="reviews-track">
                 <!-- Bloco 1 -->
                 <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
@@ -496,7 +535,7 @@
                 <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
 
-                <!-- Bloco 3 (Para garantir preenchimento em telas muito largas) -->
+                <!-- Bloco 3 (Para garantir preenchimento) -->
                 <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
@@ -536,66 +575,6 @@
         </div>
     </section>
 
-    <section class="equipment-section" id="tecnologia">
-        <h2 class="section-title reveal">Tecnologia e Equipamentos de Ponta</h2>
-        <p class="section-subtitle reveal">Utilizamos o que há de melhor no mercado mundial para garantir resultados impecáveis e total segurança para as suas peças.</p>
-        
-        <div class="equipment-grid">
-            <div class="equipment-card reveal">
-                <i class="fa-solid fa-gauge-high"></i>
-                <h3>Centrífuga Industrial</h3>
-                <p>Nossa Lavfort Spinner 3.5 garante a extração máxima de água dos tapetes, evitando maus odores e proporcionando uma secagem ultrarrápida.</p>
-            </div>
-            
-            <div class="equipment-card reveal" style="transition-delay: 0.1s;">
-                <i class="fa-solid fa-wind"></i>
-                <h3>Extratoras Profissionais</h3>
-                <p>Equipamentos de alta sucção que alcançam as camadas mais profundas do estofado, removendo 99% dos ácaros, fungos e bactérias.</p>
-            </div>
-            
-            <div class="equipment-card reveal" style="transition-delay: 0.2s;">
-                <i class="fa-solid fa-flask-vial"></i>
-                <h3>Produtos Premium</h3>
-                <p>Linha de higienização biodegradável, aprovada pela Anvisa, que não agride as fibras do tecido e é totalmente segura para pets e crianças.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="social-proof">
-        <h2 class="section-title reveal">O que nossos clientes dizem</h2>
-        <p class="section-subtitle reveal">A satisfação de quem já experimentou e aprovou a qualidade EcoClean.</p>
-        
-        <div class="reviews-strip bg-light-strip reveal">
-            <div class="reviews-track">
-                <div class="review-card"><img src="https://i.imgur.com/9nKCwUa.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/MXPqU27.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/XrrY7x0.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/NPRAio3.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/5IQlYIZ.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/q29N6Xt.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/QVedVwW.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/RvwisGJ.png" alt="Avaliação de Cliente"></div>
-                
-                <div class="review-card"><img src="https://i.imgur.com/9nKCwUa.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/MXPqU27.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/XrrY7x0.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/NPRAio3.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/5IQlYIZ.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/q29N6Xt.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/QVedVwW.png" alt="Avaliação de Cliente"></div>
-                <div class="review-card"><img src="https://i.imgur.com/RvwisGJ.png" alt="Avaliação de Cliente"></div>
-            </div>
-        </div>
-
-        <div class="review-cta reveal">
-            <h3>Já é nosso cliente?</h3>
-            <p>Sua opinião é muito importante! Ajude outras pessoas a conhecerem a qualidade do nosso trabalho deixando sua avaliação.</p>
-            <a href="https://g.page/r/Ca_UZukm7wjXEBE/review" target="_blank" class="btn btn-google">
-                <i class="fa-brands fa-google" style="color: #4285F4; margin-right: 8px; font-size: 1.2rem;"></i> Deixe sua avaliação no Google
-            </a>
-        </div>
-    </section>
-
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -604,6 +583,7 @@
                 </div>
                 <p style="color: #ccc;">Especialistas em renovar tapetes e estofados, proteger sua família e garantir um ambiente limpo e saudável.</p>
             </div>
+            
             <div class="footer-col">
                 <h4>Contato & Redes</h4>
                 <a href="https://www.instagram.com/ecoclean_slz/" target="_blank" class="footer-link">
@@ -612,13 +592,23 @@
                 <a href="https://api.whatsapp.com/send?phone=5598988106716" target="_blank" class="footer-link">
                     <i class="fa-brands fa-whatsapp"></i> Fale no WhatsApp
                 </a>
-            </div>
-            <div class="footer-col">
-                <h4>Nossa Estrutura</h4>
-                <a href="https://maps.app.goo.gl/H8JPUFZ1RG3zrTPT7" target="_blank" class="footer-link">
-                    <i class="fa-solid fa-location-dot"></i> Abrir no Google Maps
+                <a href="https://maps.app.goo.gl/H8JPUFZ1RG3zrTPT7" target="_blank" class="footer-link" style="margin-top: 15px;">
+                    <i class="fa-solid fa-location-dot"></i> Nossa Sala VIP (Maps)
                 </a>
-                <p style="color: #ccc; margin-top: 5px; font-size: 0.95rem;">Venha conhecer nossa Sala VIP. Atendemos toda a região de São Luís - MA.</p>
+            </div>
+
+            <!-- NOVA COLUNA COM HORÁRIOS -->
+            <div class="footer-col">
+                <h4>Horário de Atendimento</h4>
+                <ul class="hours-list">
+                    <li><strong>Segunda:</strong> 08:00 até 17:00</li>
+                    <li><strong>Terça:</strong> 08:00 até 17:00</li>
+                    <li><strong>Quarta:</strong> 08:00 até 17:00</li>
+                    <li><strong>Quinta:</strong> 08:00 até 17:00</li>
+                    <li><strong>Sexta:</strong> 08:00 até 17:00</li>
+                    <li><strong>Sábado:</strong> 08:00 até 17:00</li>
+                    <li style="color: #ff4757; margin-top: 5px;"><strong>Domingo:</strong> Fechado</li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
