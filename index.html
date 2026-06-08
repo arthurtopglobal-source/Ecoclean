@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Lavar Tapete em São Luís | EcoClean Higienização de Estofados</title>
-    <meta name="description" content="A melhor empresa para lavar tapete em São Luís. Higienização profunda de tapetes, sofás, poltronas, persianas, auditórios e salas de cinema. Serviço com busca e entrega e Sala VIP.">
-    <meta name="keywords" content="lavar tapete em são luis, tapete são luis, higienização de estofados são luis, lavanderia de tapete, limpar sofá são luis, limpeza de persianas, ecoclean">
+    <title>Lavar Tapetes em São Luís | Especialistas em Lavagem de Tapetes</title>
+    <meta name="description" content="Procurando como lavar tapetes ou como tirar mau cheiro do tapete em São Luís? A EcoClean é especialista em lavagem de tapetes, sofás e estofados com busca e entrega.">
+    <meta name="keywords" content="tapetes São Luís, lavar tapetes, como lavar tapetes, lavagem de tapetes, como tirar mau cheiro do tapete, lavar tapete em são luis, tapete são luis, higienização de estofados são luis, lavanderia de tapete, ecoclean">
     <meta name="author" content="EcoClean Higienizações">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -88,16 +88,59 @@
         }
         .btn-whatsapp { background-color: var(--whatsapp-green); }
         .btn-whatsapp:hover { background-color: #1ebe57; box-shadow: 0 5px 15px rgba(37,211,102,0.4); }
+        
+        /* Classe para fazer o botão grandão pulsar */
+        .btn-pulse {
+            animation: pulse-hero 2s infinite;
+        }
+        @keyframes pulse-hero {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(37,211,102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
+        }
 
         /* ─── HERO SECTION ─── */
         .hero {
-            background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 86, 179, 0.85)), url('https://i.imgur.com/pFAkPuF.jpg') center/cover;
+            position: relative;
             color: white;
             text-align: center;
-            padding: 160px 20px 120px;
+            padding: 180px 20px 120px;
+            overflow: hidden;
+            z-index: 1;
         }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); line-height: 1.2; }
-        .hero p { font-size: 1.2rem; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; opacity: 0.95; }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: url('https://i.imgur.com/8N8CArq.jpg') center/cover no-repeat;
+            filter: blur(0.5px);
+            z-index: -2;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(0, 30, 60, 0.25), rgba(0, 86, 179, 0.40));
+            z-index: -1;
+        }
+
+        .hero h1 { 
+            font-size: 3.2rem; 
+            margin-bottom: 20px; 
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8); 
+            line-height: 1.2; 
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            margin-bottom: 40px; 
+            max-width: 800px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.9); 
+            font-weight: 500;
+        }
 
         .google-rating {
             background: white;
@@ -241,6 +284,7 @@
             transition: 0.3s;
         }
         .floating-whatsapp:hover { transform: scale(1.05); animation: none; background-color: #1ebe57;}
+        
         @keyframes pulse-wa {
             0% { box-shadow: 0 0 0 0 rgba(37,211,102, 0.5); }
             70% { box-shadow: 0 0 0 15px rgba(37,211,102, 0); }
@@ -253,7 +297,7 @@
 
         /* ─── RESPONSIVIDADE EXTREMA ─── */
         @media (max-width: 900px) {
-            .hero { background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 86, 179, 0.85)), url('https://i.imgur.com/GoyV42I.jpg') center/cover; padding-top: 140px; }
+            .hero { padding-top: 140px; }
             .hero h1 { font-size: 2.5rem; }
             .review-card { width: 240px; }
             .ba-image-wrapper img { height: 250px; }
@@ -298,7 +342,8 @@
         <p class="reveal">A EcoClean devolve a aparência de novo ao seu tapete, sofá e poltrona. Atendimento residencial com busca e entrega, soluções para auditórios e uma Sala VIP exclusiva para o seu conforto.</p>
         
         <div class="reveal">
-            <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-whatsapp" style="font-size: 1.2rem; padding: 18px 35px;">
+            <!-- Botão grandão com pulsação -->
+            <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-whatsapp btn-pulse" style="font-size: 1.2rem; padding: 18px 35px;">
                 <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento Grátis
             </a>
         </div>
@@ -426,28 +471,28 @@
         
         <div class="faq-container reveal">
             <details>
-                <summary>A EcoClean consegue remover cheiro de suor e urina dos estofados?</summary>
-                <div class="faq-answer">Sim. Trabalhamos com produtos profissionais específicos para cada tipo de mau odor. Na maioria dos casos, conseguimos eliminar odores causados por suor, urina de pets ou outros resíduos orgânicos.</div>
+                <summary>Como tirar mau cheiro do tapete?</summary>
+                <div class="faq-answer">Muitas pessoas pesquisam como tirar mau cheiro do tapete com receitas caseiras, mas isso pode danificar os fios e piorar o odor se o tapete não secar direito. A EcoClean utiliza produtos profissionais que neutralizam completamente o mau cheiro (como urina de pets e umidade), além de uma centrífuga industrial que garante secagem rápida e sem odores.</div>
+            </details>
+            <details>
+                <summary>Como lavar tapetes sem estragar os fios?</summary>
+                <div class="faq-answer">Saber como lavar tapetes corretamente exige entender o tipo de tecido. Tapetes felpudos, persas ou sintéticos precisam de tratamentos diferentes. Na EcoClean, fazemos a avaliação do material e aplicamos o método de lavagem de tapetes por extração profissional, garantindo limpeza profunda sem desbotar ou danificar a trama.</div>
+            </details>
+            <details>
+                <summary>A EcoClean busca e entrega tapetes em São Luís?</summary>
+                <div class="faq-answer">Sim! Se você precisa lavar tapetes em São Luís com comodidade, nós oferecemos o serviço de retirada e entrega do seu tapete diretamente na sua residência ou empresa.</div>
+            </details>
+            <details>
+                <summary>A EcoClean consegue remover cheiro de suor e urina dos sofás?</summary>
+                <div class="faq-answer">Sim. Trabalhamos com produtos profissionais específicos para cada tipo de mau odor. Na maioria dos casos, conseguimos eliminar odores causados por suor, urina de pets ou outros resíduos orgânicos dos estofados.</div>
             </details>
             <details>
                 <summary>Qual é o tempo de secagem do estofado após a limpeza?</summary>
                 <div class="faq-answer">O tempo médio de secagem varia entre 3 e 8 horas, dependendo do tipo de tecido e das condições do ambiente.<br><br>• Tecidos mais finos: aproximadamente 3 a 4 horas.<br>• Tecidos mais grossos: entre 6 e 8 horas.<br>Para uma secagem mais rápida, recomendamos manter o local bem ventilado.</div>
             </details>
             <details>
-                <summary>A EcoClean busca e entrega tapetes em São Luís?</summary>
-                <div class="faq-answer">Sim! Oferecemos o serviço de retirada e entrega do seu tapete diretamente na sua residência ou empresa, proporcionando mais praticidade e conforto para você.</div>
-            </details>
-            <details>
                 <summary>Vocês fazem lavagem a seco?</summary>
                 <div class="faq-answer">Não. Nosso processo é de lavagem profissional por extração, que inclui aplicação de produtos específicos, escovação técnica e extração profunda da sujeira e dos resíduos. Esse método garante uma higienização muito mais eficiente do que a lavagem a seco convencional.</div>
-            </details>
-            <details>
-                <summary>A EcoClean remove manchas de urina?</summary>
-                <div class="faq-answer">Sim, desde que a mancha seja recente. Em casos de manchas muito antigas ou de sangue, a remoção completa pode não ser possível, mas sempre realizamos uma avaliação para buscar o melhor resultado.</div>
-            </details>
-            <details>
-                <summary>O serviço possui garantia?</summary>
-                <div class="faq-answer">Sim. A EcoClean oferece uma garantia de 48 horas após a conclusão do serviço para situações relacionadas à execução do nosso trabalho (ex: persistência de mau odor ou inconformidade no processo). Caso seja constatado problema no serviço prestado, faremos o ajuste sem custo.<br><br><em>Importante: a garantia não cobre situações ocorridas após a entrega, como novos derramamentos, contato com urina de animais ou armazenamento inadequado.</em></div>
             </details>
         </div>
     </section>
@@ -542,6 +587,7 @@
         </div>
     </footer>
 
+    <!-- Botão redondo que acompanha no canto inferior direito -->
     <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." class="floating-whatsapp" id="orcamento" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> <span>Chamar no WhatsApp</span>
     </a>
