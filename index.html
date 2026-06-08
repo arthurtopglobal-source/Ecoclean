@@ -189,7 +189,17 @@
             display: flex; flex-direction: column;
         }
         .service-category:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .service-category i.cat-icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        
+        /* Imagem de Capa para Serviços */
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
         .service-category h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--text-color); }
         .service-category p { color: #666; font-size: 0.95rem; margin-bottom: 10px; line-height: 1.6; }
 
@@ -217,7 +227,6 @@
         /* ─── QUALIDADE ECOCLEAN (CARROSSEL FOTOS GRANDES E CLICÁVEIS) ─── */
         .quality-section { padding: 80px 0; background-color: white; overflow: hidden; }
         .quality-section .section-title, .quality-section .section-subtitle { padding: 0 5%; }
-        /* Tamanho maior das fotos de qualidade */
         .quality-card { 
             width: 600px; 
             height: 400px; 
@@ -229,7 +238,7 @@
             position: relative;
         }
         .quality-card::after {
-            content: '\f0b2'; /* Ícone de expandir do FontAwesome */
+            content: '\f0b2';
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             position: absolute;
@@ -301,7 +310,7 @@
         .equipment-card h3 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 15px; }
         .equipment-card p { color: #555; font-size: 0.95rem; line-height: 1.6;}
 
-        /* ─── CARROSSEL REVIEWS E FOTOS (LÓGICA COMPARTILHADA) ─── */
+        /* ─── CARROSSEL REVIEWS E FOTOS ─── */
         .social-proof { padding: 80px 0; background-color: var(--bg-light); overflow: hidden; }
         .social-proof .section-title, .social-proof .section-subtitle { padding: 0 5%; }
         .reviews-strip { display: flex; gap: 20px; padding: 20px 0; overflow: hidden; white-space: nowrap; position: relative; max-width: 100vw; }
@@ -314,7 +323,7 @@
         .bg-white-strip::after { right: 0; background: linear-gradient(to left, white, transparent); }
 
         .reviews-track { display: flex; gap: 20px; animation: scrollTrack 35s linear infinite; }
-        .reviews-strip:hover .reviews-track { animation-play-state: paused; } /* Para ao passar o mouse */
+        .reviews-strip:hover .reviews-track { animation-play-state: paused; }
         @keyframes scrollTrack { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         .review-card { width: 280px; flex-shrink: 0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;}
@@ -407,35 +416,35 @@
         
         <div class="services-grid">
             <div class="service-category reveal">
-                <i class="fa-solid fa-couch cat-icon"></i>
+                <img src="https://i.imgur.com/qvcU3J2.jpg" alt="Higienização de Estofados" class="service-image">
                 <h3>Higienização de Estofados</h3>
                 <p>Limpeza profunda que remove ácaros, fungos e bactérias, devolvendo aparência, conforto e segurança ao seu estofado.</p>
                 <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Estofados." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             
             <div class="service-category reveal" style="transition-delay: 0.1s;">
-                <i class="fa-solid fa-bed cat-icon"></i>
+                <img src="https://i.imgur.com/GgdEYE9.jpg" alt="Higienização de Colchões" class="service-image">
                 <h3>Higienização de Colchões</h3>
                 <p>Elimine alérgenos invisíveis e tenha noites de sono mais saudáveis, tranquilas e seguras para toda a família.</p>
                 <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Colchões." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="service-category reveal" style="transition-delay: 0.2s;">
-                <i class="fa-solid fa-rug cat-icon"></i>
+                <img src="https://i.imgur.com/UOIFioo.jpg" alt="Higienização de Tapetes" class="service-image">
                 <h3>Higienização de Tapetes</h3>
                 <p>Remoção profunda de sujeira, odores e microrganismos, preservando a textura, a cor e a durabilidade do tapete.</p>
                 <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Tapetes." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="service-category reveal">
-                <i class="fa-solid fa-shield-halved cat-icon"></i>
+                <video src="https://i.imgur.com/wF509mC.mp4" autoplay loop muted playsinline class="service-image"></video>
                 <h3>Impermeabilização de Estofados</h3>
                 <p>Proteção avançada que cria uma barreira contra líquidos e sujeiras, facilitando a limpeza e prolongando a vida útil do estofado.</p>
                 <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Impermeabilização%20de%20Estofados." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="service-category reveal" style="transition-delay: 0.1s;">
-                <i class="fa-solid fa-blinds cat-icon"></i>
+                <img src="https://i.imgur.com/PnR6v5C.jpg" alt="Higienização de Cortinas" class="service-image">
                 <h3>Higienização de Cortinas</h3>
                 <p>Limpeza técnica que remove poeira, ácaros e odores sem danificar o tecido, mantendo leveza e aparência renovada.</p>
                 <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Cortinas." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
@@ -470,7 +479,7 @@
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: QUALIDADE ECOCLEAN (COM FOTOS GIGANTES E CLICÁVEIS) -->
+    <!-- NOVA SEÇÃO: QUALIDADE ECOCLEAN -->
     <section class="quality-section">
         <h2 class="section-title reveal">Qualidade EcoClean</h2>
         <p class="section-subtitle reveal">Confira o resultado final dos nossos serviços. Clique nas imagens para ampliar e comprove o padrão de excelência.</p>
