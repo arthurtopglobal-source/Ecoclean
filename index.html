@@ -2,9 +2,13 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoClean | Especialistas em Limpeza de Estofados</title>
-    <!-- Biblioteca de Ícones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Lavar Tapete em São Luís | EcoClean Higienização de Estofados</title>
+    <meta name="description" content="A melhor empresa para lavar tapete em São Luís. Higienização profunda de tapetes, sofás, poltronas, persianas, auditórios e salas de cinema. Serviço com busca e entrega e Sala VIP.">
+    <meta name="keywords" content="lavar tapete em são luis, tapete são luis, higienização de estofados são luis, lavanderia de tapete, limpar sofá são luis, limpeza de persianas, ecoclean">
+    <meta name="author" content="EcoClean Higienizações">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -16,6 +20,7 @@
             --whatsapp-green: #25d366;
             --gold-star: #ffc107;
             --danger-red: #ff4757;
+            --vip-gold: #c5a059;
         }
 
         * {
@@ -30,33 +35,36 @@
             color: var(--text-color);
             line-height: 1.6;
             background-color: white;
+            overflow-x: hidden;
         }
 
-        /* CABEÇALHO */
+        /* ─── CABEÇALHO INTELIGENTE (Centralizado) ─── */
         header {
             background-color: white;
             padding: 15px 5%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 5%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
         .logo img {
-            height: 55px; /* Tamanho ajustado da logo */
+            height: 65px;
             object-fit: contain;
+            transition: height 0.3s ease;
         }
+        header.scrolled .logo img { height: 50px; }
 
-        /* BOTÕES */
+        /* ─── BOTÕES ─── */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -71,743 +79,449 @@
             transition: 0.3s;
             border: none;
             cursor: pointer;
+            max-width: 100%;
         }
-
         .btn:hover {
             background-color: var(--secondary-color);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,168,255,0.4);
         }
+        .btn-whatsapp { background-color: var(--whatsapp-green); }
+        .btn-whatsapp:hover { background-color: #1ebe57; box-shadow: 0 5px 15px rgba(37,211,102,0.4); }
 
-        .btn-whatsapp {
-            background-color: var(--whatsapp-green);
-        }
-        
-        .btn-whatsapp:hover {
-            background-color: #1ebe57;
-            box-shadow: 0 5px 15px rgba(37,211,102,0.4);
-        }
-
-        /* HERO SECTION */
+        /* ─── HERO SECTION ─── */
         .hero {
-            background: linear-gradient(rgba(0, 30, 60, 0.7), rgba(0, 86, 179, 0.7)), url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80') center/cover;
+            background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 86, 179, 0.85)), url('https://i.imgur.com/pFAkPuF.jpg') center/cover;
             color: white;
             text-align: center;
-            padding: 120px 20px;
+            padding: 160px 20px 120px;
         }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); line-height: 1.2; }
+        .hero p { font-size: 1.2rem; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; opacity: 0.95; }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-
-        /* AVALIAÇÕES GOOGLE (Destaque Topo) */
         .google-rating {
             background: white;
-            padding: 15px 30px;
+            padding: 10px 25px;
             border-radius: 50px;
             display: inline-flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             color: var(--text-color);
             margin-bottom: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .stars i {
-            color: var(--gold-star);
-            font-size: 1.2rem;
-        }
-
-        .google-rating span {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* TITULOS DAS SEÇÕES */
-        .section-title {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            color: #666;
-            margin-bottom: 50px;
-            font-size: 1.1rem;
-            text-align: center;
-        }
-
-        /* SEÇÃO NOSSOS SERVIÇOS */
-        .services-section {
-            padding: 80px 5%;
-            background-color: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto 40px;
-        }
-
-        .service-category {
-            background: var(--bg-light);
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--primary-color);
-        }
-
-        .service-category i.cat-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .service-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--text-color);
-        }
-
-        .service-list {
-            list-style: none;
-        }
-
-        .service-list li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
-        }
-
-        .service-list li i {
-            color: var(--whatsapp-green);
-            font-size: 1.1rem;
-        }
-
-        /* BANNERS ESPECIAIS */
-        .special-banners {
-            display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            justify-content: center;
         }
+        .stars i { color: var(--gold-star); font-size: 1.1rem; }
+        .google-rating span { font-weight: bold; }
 
-        .banner {
-            flex: 1;
-            min-width: 300px;
-            padding: 30px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+        /* ─── TÍTULOS ─── */
+        .section-title { color: var(--primary-color); font-size: 2.2rem; margin-bottom: 10px; text-align: center; line-height: 1.3;}
+        .section-subtitle { color: #666; margin-bottom: 50px; font-size: 1.1rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-        .banner-delivery {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-        }
-
-        .banner-terceirizacao {
-            background: linear-gradient(135deg, #333, #1a1a1a);
-        }
-
-        .banner i {
-            font-size: 3.5rem;
-        }
-
-        .banner-terceirizacao i {
-            color: var(--gold-star);
-        }
-
-        .banner h4 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-
-        .banner-terceirizacao h4 {
-            color: var(--gold-star);
-        }
-
-        /* GALERIA ANTES E DEPOIS - LADO A LADO */
-        .gallery {
-            padding: 80px 5%;
-            background-color: var(--bg-light);
-        }
-
-        .ba-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .ba-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .ba-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .ba-images {
-            display: flex;
-            width: 100%;
-        }
-
-        .ba-image-wrapper {
-            position: relative;
-            width: 50%;
-        }
-
-        .ba-image-wrapper img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Linha divisória entre o antes e depois */
-        .ba-image-wrapper:first-child {
-            border-right: 3px solid white;
-        }
-
-        .badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 5px 12px;
-            border-radius: 5px;
-            font-weight: bold;
-            color: white;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-
-        .badge-antes {
-            background-color: var(--danger-red);
-        }
-
-        .badge-depois {
-            background-color: var(--whatsapp-green);
-        }
-
-        .ba-caption {
-            padding: 20px;
-            text-align: center;
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+        /* ─── NOSSOS SERVIÇOS ─── */
+        .services-section { padding: 80px 5%; background-color: var(--bg-light); }
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); 
+            gap: 30px; max-width: 1200px; margin: 0 auto; 
         }
         
-        .ba-caption span {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: normal;
+        .service-category {
+            background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-color); transition: 0.3s;
         }
+        .service-category:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .service-category i.cat-icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .service-category h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color); }
+        .service-category p { color: #666; margin-bottom: 20px; font-size: 0.95rem; }
+        
+        .service-list { list-style: none; }
+        .service-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 0.95rem;}
+        .service-list li i { color: var(--whatsapp-green); flex-shrink: 0;}
 
-        /* BENEFÍCIOS */
-        .benefits {
-            padding: 80px 5%;
-            background-color: white;
-            text-align: center;
+        /* ─── BANNERS VIP/DELIVERY ─── */
+        .premium-features { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); 
+            gap: 20px; max-width: 1200px; margin: 40px auto 0; 
         }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .banner { 
+            padding: 30px; border-radius: 15px; display: flex; flex-direction: column; justify-content: center; 
+            color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: 0.3s; width: 100%;
         }
+        .banner:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .banner-header { display: flex; align-items: center; gap: 20px; }
+        .banner-vip { background: linear-gradient(135deg, #1a1a1a, #333); border: 1px solid var(--vip-gold); }
+        .banner-vip i, .banner-vip h4 { color: var(--vip-gold); }
+        .banner-delivery { background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); }
+        .banner-header i { font-size: 3rem; flex-shrink: 0; }
+        .banner h4 { font-size: 1.4rem; margin-bottom: 8px; line-height: 1.2;}
 
-        .card {
-            background: var(--bg-light);
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .vip-mini-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; width: 100%; }
+        .vip-mini-gallery img { width: 100%; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: transform 0.3s; }
+        .vip-mini-gallery img:hover { transform: scale(1.05); }
+
+        /* ─── GALERIA ANTES E DEPOIS ─── */
+        .gallery { padding: 80px 5%; background-color: white; }
+        .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .ba-card { background: var(--bg-light); border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: 0.3s; width: 100%;}
+        .ba-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .ba-images { display: flex; width: 100%; }
+        .ba-image-wrapper { position: relative; width: 50%; }
+        .ba-image-wrapper img { width: 100%; height: 300px; object-fit: cover; display: block; }
+        .ba-image-wrapper:first-child { border-right: 3px solid white; }
+        .badge { position: absolute; top: 15px; left: 15px; padding: 5px 12px; border-radius: 5px; font-weight: bold; color: white; font-size: 0.85rem; text-transform: uppercase; z-index: 10; }
+        .badge-antes { background-color: var(--danger-red); }
+        .badge-depois { background-color: var(--whatsapp-green); }
+        .ba-caption { padding: 20px; text-align: center; font-weight: bold; color: var(--primary-color); font-size: 1.1rem; display: flex; flex-direction: column; }
+        .ba-caption span { font-size: 0.9rem; color: #666; font-weight: normal; margin-top: 5px; }
+
+        /* ─── FAQ ─── */
+        .faq-section { padding: 80px 5%; background-color: var(--bg-light); }
+        .faq-container { max-width: 800px; margin: 0 auto; width: 100%; }
+        details { background: white; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); overflow: hidden; transition: 0.3s; }
+        summary { padding: 20px; font-weight: 600; font-size: 1.1rem; color: var(--primary-color); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--secondary-color); transition: 0.3s; flex-shrink: 0;}
+        details[open] summary::after { transform: rotate(180deg); }
+        .faq-answer { padding: 0 20px 20px; color: #555; line-height: 1.7; border-top: 1px solid #eee; margin-top: 10px; padding-top: 15px; }
+
+        /* ─── EQUIPAMENTOS E TECNOLOGIA ─── */
+        .equipment-section { padding: 80px 5%; background-color: white; }
+        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .equipment-card { 
+            background: var(--bg-light); 
+            padding: 40px 30px; 
+            border-radius: 15px; 
+            text-align: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
+            border-bottom: 4px solid var(--secondary-color);
+        }
+        .equipment-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .equipment-card i { font-size: 3.5rem; color: var(--secondary-color); margin-bottom: 20px; }
+        .equipment-card h3 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 15px; }
+        .equipment-card p { color: #555; font-size: 0.95rem; line-height: 1.6;}
+
+        /* ─── CARROSSEL AVALIAÇÕES ─── */
+        .social-proof { padding: 80px 0; background-color: var(--bg-light); overflow: hidden; }
+        .social-proof .section-title, .social-proof .section-subtitle { padding: 0 5%; }
+        .reviews-strip { display: flex; gap: 20px; padding: 20px 0; overflow: hidden; white-space: nowrap; position: relative; max-width: 100vw; }
+        .reviews-strip::before, .reviews-strip::after { content: ''; position: absolute; top: 0; width: 50px; height: 100%; z-index: 2; }
+        .reviews-strip::before { left: 0; background: linear-gradient(to right, var(--bg-light), transparent); }
+        .reviews-strip::after { right: 0; background: linear-gradient(to left, var(--bg-light), transparent); }
+        .reviews-track { display: flex; gap: 20px; animation: scrollTrack 30s linear infinite; }
+        .reviews-strip:hover .reviews-track { animation-play-state: paused; }
+        
+        @keyframes scrollTrack { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        .review-card { width: 280px; flex-shrink: 0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;}
+        .review-card img { width: 100%; display: block; object-fit: cover;}
+
+        .review-cta { margin-top: 40px; text-align: center; background: white; padding: 40px 20px; border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto; width: 90%; box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
+        .review-cta h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.8rem; }
+        .btn-google { background-color: white; color: #333; border: 2px solid #ddd; font-weight: bold; padding: 12px 30px; border-radius: 50px; display: inline-block; text-decoration: none; transition: 0.3s; margin-top: 15px; max-width: 100%; white-space: normal;}
+        .btn-google:hover { border-color: #4285F4; background-color: #f4f8ff; transform: translateY(-2px); }
+        
+        /* ─── RODAPÉ ─── */
+        footer { background-color: #1a1a1a; color: white; padding: 60px 5% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 40px; border-bottom: 1px solid #333; padding-bottom: 40px; }
+        .footer-col h4 { color: var(--secondary-color); margin-bottom: 20px; }
+        .footer-link { display: flex; align-items: center; gap: 10px; color: #ccc; text-decoration: none; margin-bottom: 15px; transition: 0.3s; }
+        .footer-link:hover { color: var(--secondary-color); transform: translateX(5px); }
+        .footer-bottom { text-align: center; color: #888; font-size: 0.9rem; }
+
+        /* ─── WHATSAPP FLUTUANTE PULSANTE ─── */
+        .floating-whatsapp {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: var(--whatsapp-green); color: white;
+            padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 1000; display: flex; align-items: center; gap: 10px; font-size: 1.1rem;
+            animation: pulse-wa 2s infinite;
             transition: 0.3s;
         }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        .floating-whatsapp:hover { transform: scale(1.05); animation: none; background-color: #1ebe57;}
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37,211,102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
         }
 
-        .card i {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
+        /* ─── SCROLL REVEAL ─── */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        /* PROVAS SOCIAIS (ALINHAMENTO PERFEITO COM 8 ITENS) */
-        .social-proof {
-            padding: 80px 5%;
-            background-color: var(--bg-light);
-        }
-
-        .reviews-grid {
-            display: grid;
-            /* Força 4 colunas no computador para formar 2 linhas perfeitas */
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: start;
-        }
-
-        .review-card {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            background: #fff;
-            border: 1px solid #eee;
-        }
-
-        .review-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .review-card img {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-        }
-
-        /* Responsividade Específica da Grade de Avaliações */
-        @media (max-width: 1024px) {
-            .reviews-grid {
-                /* Em tablets, forma 4 linhas de 2 colunas */
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* ─── RESPONSIVIDADE EXTREMA ─── */
+        @media (max-width: 900px) {
+            .hero { background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 86, 179, 0.85)), url('https://i.imgur.com/GoyV42I.jpg') center/cover; padding-top: 140px; }
+            .hero h1 { font-size: 2.5rem; }
+            .review-card { width: 240px; }
+            .ba-image-wrapper img { height: 250px; }
         }
         @media (max-width: 600px) {
-            .reviews-grid {
-                /* No celular, fica 1 embaixo do outro */
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .review-cta {
-            margin-top: 50px;
-            text-align: center;
-            background: white;
-            padding: 40px 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .review-cta h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.8rem;
-        }
-
-        .review-cta p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .btn-google {
-            background-color: white;
-            color: #333;
-            border: 2px solid #ddd;
-            font-weight: bold;
-            padding: 12px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn-google:hover {
-            border-color: #4285F4;
-            background-color: #f4f8ff;
-            transform: translateY(-2px);
-        }
-
-        /* CTA SECTION */
-        .cta-section {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .cta-section h2 {
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .cta-section p {
-            margin-bottom: 30px;
-            font-size: 1.2rem;
-        }
-
-        /* RODAPÉ E INFORMAÇÕES DE CONTATO */
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 60px 5% 20px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            border-bottom: 1px solid #333;
-            padding-bottom: 40px;
-            margin-bottom: 20px;
-        }
-
-        .footer-col h4 {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #ccc;
-            text-decoration: none;
-            margin-bottom: 15px;
-            transition: 0.3s;
-        }
-
-        .footer-link:hover {
-            color: var(--secondary-color);
-            transform: translateX(5px);
-        }
-
-        .footer-link i {
-            font-size: 1.2rem;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--whatsapp-green);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.05);
-            background-color: #1ebe57;
-        }
-
-        /* Responsividade Geral */
-        @media (max-width: 768px) {
+            .banner-header { flex-direction: column; text-align: center; }
+            .banner-header i { margin-bottom: 10px; }
+            .floating-whatsapp { bottom: 20px; right: 20px; padding: 15px; border-radius: 50%; }
+            .floating-whatsapp span { display: none; }
+            
+            /* Header Mobile Ajustado */
+            header { padding: 15px; justify-content: center; } 
+            
+            .hero { padding-top: 150px; }
             .hero h1 { font-size: 2.2rem; }
-            header { flex-direction: column; gap: 15px; text-align: center; }
-            .banner { flex-direction: column; text-align: center; }
-            .footer-grid { text-align: center; }
-            .footer-link { justify-content: center; }
-            .floating-whatsapp { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 1rem; }
-            .ba-image-wrapper img { height: 200px; }
+            
+            .vip-mini-gallery img { height: 70px; }
+            .ba-images { flex-direction: column; }
+            .ba-image-wrapper { width: 100%; }
+            .ba-image-wrapper:first-child { border-right: none; border-bottom: 3px solid white; }
+            .ba-image-wrapper img { height: 220px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
-    <header>
+    <header id="mainHeader">
         <a href="#" class="logo">
-            <img src="https://i.imgur.com/t2QIjbV.png" alt="Logo EcoClean">
-        </a>
-        <a href="#orcamento" class="btn btn-whatsapp">
-            <i class="fa-brands fa-whatsapp"></i> Fazer Orçamento
+            <img src="https://i.imgur.com/z84628v.png" alt="EcoClean Higienização São Luís">
         </a>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
-        <div class="google-rating">
+        <div class="google-rating reveal">
             <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <span>Nota 4.9 no Google</span>
+            <span>Nota 4.9 no Google em São Luís</span>
         </div>
         
-        <h1>O "Antes e Depois" Que Vai Renovar Seus Estofados!</h1>
-        <p>Limpeza tão profunda que nossos clientes fazem questão de postar fotos dos resultados no Google! Especialistas em higienização residencial, comercial e automotiva com secagem rápida.</p>
+        <h1 class="reveal">Especialistas em Lavar Tapetes e Estofados em São Luís</h1>
+        <p class="reveal">A EcoClean devolve a aparência de novo ao seu tapete, sofá e poltrona. Atendimento residencial com busca e entrega, soluções para auditórios e uma Sala VIP exclusiva para o seu conforto.</p>
         
-        <a href="#orcamento" class="btn btn-whatsapp" style="font-size: 1.2rem; padding: 18px 35px;">
-            <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento Grátis
-        </a>
+        <div class="reveal">
+            <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-whatsapp" style="font-size: 1.2rem; padding: 18px 35px;">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento Grátis
+            </a>
+        </div>
     </section>
 
-    <!-- NOSSOS SERVIÇOS -->
     <section class="services-section">
-        <h2 class="section-title">O que nós limpamos?</h2>
-        <p class="section-subtitle">Fazemos serviços de limpeza e higienização para todos os ambientes.</p>
+        <h2 class="section-title reveal">Soluções Completas em Higienização</h2>
+        <p class="section-subtitle reveal">Muito além de limpeza, entregamos saúde e renovação para a sua casa ou empresa.</p>
         
         <div class="services-grid">
-            <div class="service-category">
-                <i class="fa-solid fa-house cat-icon"></i>
-                <h3>Residenciais</h3>
+            <div class="service-category reveal">
+                <i class="fa-solid fa-rug cat-icon"></i>
+                <h3>Lavagem de Tapetes</h3>
+                <p>Nosso grande carro-chefe. Tratamento especializado para todos os tipos de fios e tecidos, eliminando ácaros, manchas e maus odores.</p>
                 <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Sofás</li>
-                    <li><i class="fa-solid fa-check"></i> Colchões</li>
-                    <li><i class="fa-solid fa-check"></i> Cadeiras e Poltronas</li>
-                    <li><i class="fa-solid fa-check"></i> Tapetes</li>
-                    <li><i class="fa-solid fa-check"></i> Cortinas</li>
+                    <li><i class="fa-solid fa-check"></i> Secagem em ambiente controlado</li>
+                    <li><i class="fa-solid fa-check"></i> Revitalização das cores</li>
+                    <li><i class="fa-solid fa-check"></i> Eliminação de odor de pets</li>
                 </ul>
             </div>
             
-            <div class="service-category">
-                <i class="fa-solid fa-building cat-icon"></i>
-                <h3>Comerciais</h3>
+            <div class="service-category reveal" style="transition-delay: 0.1s;">
+                <i class="fa-solid fa-couch cat-icon"></i>
+                <h3>Sofás, Poltronas e Persianas</h3>
+                <p>Método de extração profunda que devolve o conforto da sua sala sem danificar o material original.</p>
                 <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Cadeiras de Escritório</li>
-                    <li><i class="fa-solid fa-check"></i> Divisórias</li>
-                    <li><i class="fa-solid fa-check"></i> Outros Mobiliários</li>
+                    <li><i class="fa-solid fa-check"></i> Sofás e Poltronas</li>
+                    <li><i class="fa-solid fa-check"></i> Colchões e Camas</li>
+                    <li><i class="fa-solid fa-check"></i> Lavagem de Persianas</li>
                 </ul>
             </div>
 
-            <div class="service-category">
-                <i class="fa-solid fa-car cat-icon"></i>
-                <h3>Automotivos</h3>
+            <div class="service-category reveal" style="transition-delay: 0.2s;">
+                <i class="fa-solid fa-building-user cat-icon"></i>
+                <h3>Empresas e Auditórios</h3>
+                <p>Temos estrutura e equipe técnica para higienização em grande escala, garantindo um ambiente limpo para o seu público.</p>
                 <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Bancos</li>
-                    <li><i class="fa-solid fa-check"></i> Tapetes Internos</li>
-                    <li><i class="fa-solid fa-check"></i> Carpetes</li>
+                    <li><i class="fa-solid fa-check"></i> Auditórios completos</li>
+                    <li><i class="fa-solid fa-check"></i> Salas de Cinema</li>
+                    <li><i class="fa-solid fa-check"></i> Cadeiras de Escritório</li>
                 </ul>
             </div>
         </div>
 
-        <div class="special-banners">
-            <div class="banner banner-delivery">
-                <i class="fa-solid fa-truck-fast"></i>
-                <div>
-                    <h4>Especialistas em Tapetes</h4>
-                    <p>Buscamos o seu tapete sujo e entregamos limpo e cheiroso na sua casa! Delivery completo.</p>
+        <div class="premium-features">
+            <div class="banner banner-delivery reveal">
+                <div class="banner-header">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <div>
+                        <h4>Buscamos e Entregamos</h4>
+                        <p>Praticidade total! Nós retiramos o seu tapete em casa, lavamos na nossa estrutura e devolvemos limpo e cheiroso.</p>
+                    </div>
                 </div>
             </div>
-            <div class="banner banner-terceirizacao">
-                <i class="fa-solid fa-handshake"></i>
-                <div>
-                    <h4>Terceirização de Serviços</h4>
-                    <p>Se você é higienizador e precisa de um lugar para lavar os tapetes dos seus clientes, nós ajudamos você!</p>
+
+            <div class="banner banner-vip reveal" style="transition-delay: 0.1s;">
+                <div class="banner-header">
+                    <i class="fa-solid fa-crown"></i>
+                    <div>
+                        <h4>Sala VIP Exclusiva</h4>
+                        <p>Ambiente climatizado e confortável com mesa de sinuca aguardando por você.</p>
+                    </div>
+                </div>
+                <div class="vip-mini-gallery">
+                    <img src="https://i.imgur.com/AWl8R8W.jpg" alt="Fachada EcoClean">
+                    <img src="https://i.imgur.com/N46k5vV.jpg" alt="Poltronas VIP">
+                    <img src="https://i.imgur.com/woBBiC8.jpg" alt="Mesa de Sinuca">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERIA ANTES E DEPOIS COM COMPARAÇÃO LADO A LADO -->
     <section class="gallery">
-        <h2 class="section-title">Resultados Reais dos Nossos Clientes</h2>
-        <p class="section-subtitle">As imagens não mentem. Veja a transformação incrível da higienização profunda.</p>
+        <h2 class="section-title reveal">Resultados que Impressionam</h2>
+        <p class="section-subtitle reveal">Veja a diferença que a higienização profunda EcoClean faz. Imagens reais.</p>
         
         <div class="ba-grid">
+            <div class="ba-card reveal">
+                <div class="ba-images">
+                    <div class="ba-image-wrapper">
+                        <span class="badge badge-antes">Antes</span>
+                        <img src="https://i.imgur.com/T7g2qC6.jpg" alt="Tapete Antes">
+                    </div>
+                    <div class="ba-image-wrapper">
+                        <span class="badge badge-depois">Depois</span>
+                        <img src="https://i.imgur.com/R4HEgyI.jpg" alt="Tapete Depois">
+                    </div>
+                </div>
+                <div class="ba-caption">Higienização de Tapetes Premium <span>(Remoção total de encardido)</span></div>
+            </div>
+
+            <div class="ba-card reveal" style="transition-delay: 0.1s;">
+                <div class="ba-images">
+                    <div class="ba-image-wrapper">
+                        <span class="badge badge-antes">Antes</span>
+                        <img src="https://i.imgur.com/6TQreiE.jpg" alt="Sofá Antes">
+                    </div>
+                    <div class="ba-image-wrapper">
+                        <span class="badge badge-depois">Depois</span>
+                        <img src="https://i.imgur.com/epvG1Tk.jpg" alt="Sofá Depois">
+                    </div>
+                </div>
+                <div class="ba-caption">Revitalização de Sofás <span>(Extração profunda de ácaros)</span></div>
+            </div>
+
+            <div class="ba-card reveal" style="transition-delay: 0.2s;">
+                <div class="ba-images">
+                    <div class="ba-image-wrapper">
+                        <span class="badge badge-antes">Antes</span>
+                        <img src="https://i.imgur.com/65F90Qf.jpg" alt="Tapete com Mancha Antes">
+                    </div>
+                    <div class="ba-image-wrapper">
+                        <span class="badge badge-depois">Depois</span>
+                        <img src="https://i.imgur.com/cZAZNg5.jpg" alt="Tapete com Mancha Depois">
+                    </div>
+                </div>
+                <div class="ba-caption">Remoção de Manchas Severas <span>(Tratamento especializado)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2 class="section-title reveal">Dúvidas Frequentes</h2>
+        <p class="section-subtitle reveal">Tudo o que você precisa saber sobre nossos serviços de higienização.</p>
+        
+        <div class="faq-container reveal">
+            <details>
+                <summary>A EcoClean consegue remover cheiro de suor e urina dos estofados?</summary>
+                <div class="faq-answer">Sim. Trabalhamos com produtos profissionais específicos para cada tipo de mau odor. Na maioria dos casos, conseguimos eliminar odores causados por suor, urina de pets ou outros resíduos orgânicos.</div>
+            </details>
+            <details>
+                <summary>Qual é o tempo de secagem do estofado após a limpeza?</summary>
+                <div class="faq-answer">O tempo médio de secagem varia entre 3 e 8 horas, dependendo do tipo de tecido e das condições do ambiente.<br><br>• Tecidos mais finos: aproximadamente 3 a 4 horas.<br>• Tecidos mais grossos: entre 6 e 8 horas.<br>Para uma secagem mais rápida, recomendamos manter o local bem ventilado.</div>
+            </details>
+            <details>
+                <summary>A EcoClean busca e entrega tapetes em São Luís?</summary>
+                <div class="faq-answer">Sim! Oferecemos o serviço de retirada e entrega do seu tapete diretamente na sua residência ou empresa, proporcionando mais praticidade e conforto para você.</div>
+            </details>
+            <details>
+                <summary>Vocês fazem lavagem a seco?</summary>
+                <div class="faq-answer">Não. Nosso processo é de lavagem profissional por extração, que inclui aplicação de produtos específicos, escovação técnica e extração profunda da sujeira e dos resíduos. Esse método garante uma higienização muito mais eficiente do que a lavagem a seco convencional.</div>
+            </details>
+            <details>
+                <summary>A EcoClean remove manchas de urina?</summary>
+                <div class="faq-answer">Sim, desde que a mancha seja recente. Em casos de manchas muito antigas ou de sangue, a remoção completa pode não ser possível, mas sempre realizamos uma avaliação para buscar o melhor resultado.</div>
+            </details>
+            <details>
+                <summary>O serviço possui garantia?</summary>
+                <div class="faq-answer">Sim. A EcoClean oferece uma garantia de 48 horas após a conclusão do serviço para situações relacionadas à execução do nosso trabalho (ex: persistência de mau odor ou inconformidade no processo). Caso seja constatado problema no serviço prestado, faremos o ajuste sem custo.<br><br><em>Importante: a garantia não cobre situações ocorridas após a entrega, como novos derramamentos, contato com urina de animais ou armazenamento inadequado.</em></div>
+            </details>
+        </div>
+    </section>
+
+    <section class="equipment-section" id="tecnologia">
+        <h2 class="section-title reveal">Tecnologia e Equipamentos de Ponta</h2>
+        <p class="section-subtitle reveal">Utilizamos o que há de melhor no mercado mundial para garantir resultados impecáveis e total segurança para as suas peças.</p>
+        
+        <div class="equipment-grid">
+            <div class="equipment-card reveal">
+                <i class="fa-solid fa-gauge-high"></i>
+                <h3>Centrífuga Industrial</h3>
+                <p>Nossa Lavfort Spinner 3.5 garante a extração máxima de água dos tapetes, evitando maus odores e proporcionando uma secagem ultrarrápida.</p>
+            </div>
             
-            <!-- PAR 1: SOFÁ -->
-            <div class="ba-card">
-                <div class="ba-images">
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-antes">Antes</span>
-                        <img src="https://i.imgur.com/tM0kKqL.png" alt="Sofá Antes">
-                    </div>
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-depois">Depois</span>
-                        <img src="https://i.imgur.com/aaw5548.png" alt="Sofá Depois">
-                    </div>
-                </div>
-                <div class="ba-caption">Higienização Profunda de Sofá</div>
-            </div>
-
-            <!-- PAR 2: CADEIRA 1 -->
-            <div class="ba-card">
-                <div class="ba-images">
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-antes">Antes</span>
-                        <img src="https://i.imgur.com/GNucLkl.png" alt="Cadeira Antes">
-                    </div>
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-depois">Depois</span>
-                        <img src="https://i.imgur.com/Av8HRdu.png" alt="Cadeira Depois">
-                    </div>
-                </div>
-                <div class="ba-caption">
-                    Revitalização de Cadeiras
-                    <span>(Confira o depoimento da cliente abaixo!)</span>
-                </div>
-            </div>
-
-            <!-- PAR 3: CADEIRA 2 -->
-            <div class="ba-card">
-                <div class="ba-images">
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-antes">Antes</span>
-                        <img src="https://i.imgur.com/79olmqr.png" alt="Cadeira Antes">
-                    </div>
-                    <div class="ba-image-wrapper">
-                        <span class="badge badge-depois">Depois</span>
-                        <img src="https://i.imgur.com/Z1s3h0c.png" alt="Cadeira Depois">
-                    </div>
-                </div>
-                <div class="ba-caption">Remoção de Manchas Severas</div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- BENEFÍCIOS -->
-    <section class="benefits">
-        <h2 class="section-title">Por que somos a melhor escolha?</h2>
-        <p class="section-subtitle">Garantimos a qualidade e a segurança que você merece.</p>
-        
-        <div class="grid">
-            <div class="card">
-                <i class="fa-solid fa-shield-virus"></i>
-                <h3>Saúde e Higiene</h3>
-                <p>Nossos produtos eliminam 99% dos ácaros, bactérias e fungos, protegendo a saúde respiratória de todos.</p>
-            </div>
-            <div class="card">
+            <div class="equipment-card reveal" style="transition-delay: 0.1s;">
                 <i class="fa-solid fa-wind"></i>
-                <h3>Secagem Rápida</h3>
-                <p>Utilizamos máquinas extratoras de alta potência. Seu estofado fica levemente úmido e pronto para uso no mesmo dia.</p>
+                <h3>Extratoras Profissionais</h3>
+                <p>Equipamentos de alta sucção que alcançam as camadas mais profundas do estofado, removendo 99% dos ácaros, fungos e bactérias.</p>
             </div>
-            <div class="card">
-                <i class="fa-solid fa-house-chimney"></i>
-                <h3>Atendimento Prático</h3>
-                <p>Zero dor de cabeça. Nossa equipe vai até você com todos os equipamentos e garante um serviço impecável.</p>
+            
+            <div class="equipment-card reveal" style="transition-delay: 0.2s;">
+                <i class="fa-solid fa-flask-vial"></i>
+                <h3>Produtos Premium</h3>
+                <p>Linha de higienização biodegradável, aprovada pela Anvisa, que não agride as fibras do tecido e é totalmente segura para pets e crianças.</p>
             </div>
         </div>
     </section>
 
-    <!-- PROVAS SOCIAIS (8 AVALIAÇÕES ALINHADAS) -->
     <section class="social-proof">
-        <h2 class="section-title">O que nossos clientes dizem</h2>
-        <p class="section-subtitle">A satisfação de quem já experimentou e aprovou nossos serviços de excelência.</p>
+        <h2 class="section-title reveal">O que nossos clientes dizem</h2>
+        <p class="section-subtitle reveal">A satisfação de quem já experimentou e aprovou a qualidade EcoClean.</p>
         
-        <div class="reviews-grid">
-            <!-- 8 Avaliações Originais Alinhadas -->
-            <div class="review-card">
-                <img src="https://i.imgur.com/9nKCwUa.png" alt="Avaliação de Cliente">
-            </div>
-            <div class="review-card">
-                <img src="https://i.imgur.com/MXPqU27.png" alt="Avaliação de Cliente">
-            </div>
-            <div class="review-card">
-                <img src="https://i.imgur.com/XrrY7x0.png" alt="Avaliação de Cliente">
-            </div>
-            <div class="review-card">
-                <img src="https://i.imgur.com/NPRAio3.png" alt="Avaliação de Cliente">
-            </div>
-            <div class="review-card">
-                <img src="https://i.imgur.com/5IQlYIZ.png" alt="Avaliação de Cliente">
-            </div>
-            <div class="review-card">
-                <img src="https://i.imgur.com/q29N6Xt.png" alt="Avaliação de Cliente">
-            </div>
-            <div class="review-card">
-                <img src="https://i.imgur.com/QVedVwW.png" alt="Avaliação de Cliente">
-            </div>
-            <div class="review-card">
-                <img src="https://i.imgur.com/RvwisGJ.png" alt="Avaliação de Cliente">
+        <div class="reviews-strip reveal">
+            <div class="reviews-track">
+                <div class="review-card"><img src="https://i.imgur.com/9nKCwUa.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/MXPqU27.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/XrrY7x0.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/NPRAio3.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/5IQlYIZ.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/q29N6Xt.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/QVedVwW.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/RvwisGJ.png" alt="Avaliação de Cliente"></div>
+                
+                <div class="review-card"><img src="https://i.imgur.com/9nKCwUa.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/MXPqU27.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/XrrY7x0.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/NPRAio3.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/5IQlYIZ.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/q29N6Xt.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/QVedVwW.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/RvwisGJ.png" alt="Avaliação de Cliente"></div>
             </div>
         </div>
 
-        <!-- BOTÃO DE AVALIAÇÃO DO GOOGLE -->
-        <div class="review-cta">
+        <div class="review-cta reveal">
             <h3>Já é nosso cliente?</h3>
             <p>Sua opinião é muito importante! Ajude outras pessoas a conhecerem a qualidade do nosso trabalho deixando sua avaliação.</p>
-            <a href="https://www.google.com/maps/place/EcoClean+Higieniza%C3%A7%C3%B5es+-+Limpeza+de+Tapetes+e+Estofados/@-2.5940024,-44.2080382,10z/data=!4m12!1m2!2m1!1sLimpeza+de+estofados+S%C3%A3o+Luis!3m8!1s0x7f69be85a0218ad:0xd708ef26e966d4af!8m2!3d-2.5940024!4d-44.2080382!9m1!1b1!15sCh5MaW1wZXphIGRlIGVzdG9mYWRvcyBTw6NvIEx1aXNaICIebGltcGV6YSBkZSBlc3RvZmFkb3Mgc8OjbyBsdWlzkgEbdXBob2xzdGVyeV9jbGVhbmluZ19zZXJ2aWNlmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ0V2FsZHRTbkJVTURGS1lucFNVbVJHYkVkaE1EaDRZMVpzVjAwd1JSQULgAQD6AQQIABBJ!16s%2Fg%2F11t1k3nyt7?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-google">
+            <a href="https://g.page/r/Ca_UZukm7wjXEBE/review" target="_blank" class="btn btn-google">
                 <i class="fa-brands fa-google" style="color: #4285F4; margin-right: 8px; font-size: 1.2rem;"></i> Deixe sua avaliação no Google
             </a>
         </div>
     </section>
 
-    <!-- CHAMADA FINAL PARA AÇÃO -->
-    <section class="cta-section">
-        <h2>Qual valor para limpar meus estofados?</h2>
-        <p>Tire uma foto da peça e nos envie no WhatsApp. O orçamento é imediato e sem compromisso!</p>
-        <a href="#orcamento" class="btn btn-whatsapp" style="background-color: white; color: var(--primary-color);">
-            <i class="fa-solid fa-camera"></i> Enviar Foto no WhatsApp
-        </a>
-    </section>
-
-    <!-- RODAPÉ COMPLETO -->
     <footer>
         <div class="footer-grid">
-            <!-- Coluna 1: Marca (LOGO SEM FUNDO BRANCO) -->
             <div class="footer-col">
-                <div class="logo" style="justify-content: flex-start; margin-bottom: 15px; display: inline-block;">
-                    <img src="https://i.imgur.com/t2QIjbV.png" alt="Logo EcoClean" style="height: 60px; display: block;">
+                <div class="logo" style="margin-bottom: 15px;">
+                    <img src="https://i.imgur.com/z84628v.png" alt="Logo EcoClean" style="height: 60px;">
                 </div>
-                <p style="color: #ccc;">Especialistas em renovar estofados, proteger sua família e garantir um ambiente limpo e saudável.</p>
+                <p style="color: #ccc;">Especialistas em renovar tapetes e estofados, proteger sua família e garantir um ambiente limpo e saudável.</p>
             </div>
-
-            <!-- Coluna 2: Contato e Redes -->
             <div class="footer-col">
-                <h4>Contato & Redes Sociais</h4>
+                <h4>Contato & Redes</h4>
                 <a href="https://www.instagram.com/ecoclean_slz/" target="_blank" class="footer-link">
                     <i class="fa-brands fa-instagram"></i> Siga @ecoclean_slz
                 </a>
@@ -815,26 +529,47 @@
                     <i class="fa-brands fa-whatsapp"></i> Fale no WhatsApp
                 </a>
             </div>
-
-            <!-- Coluna 3: Endereço -->
             <div class="footer-col">
-                <h4>Nossa Localização</h4>
+                <h4>Nossa Estrutura</h4>
                 <a href="https://maps.app.goo.gl/H8JPUFZ1RG3zrTPT7" target="_blank" class="footer-link">
                     <i class="fa-solid fa-location-dot"></i> Abrir no Google Maps
                 </a>
-                <p style="color: #ccc; margin-top: 5px; font-size: 0.95rem;">Atendemos e realizamos serviços em toda a região de São Luís - MA.</p>
+                <p style="color: #ccc; margin-top: 5px; font-size: 0.95rem;">Venha conhecer nossa Sala VIP. Atendemos toda a região de São Luís - MA.</p>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>© 2026 EcoClean Higienizações. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
-    <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento%20para%20limpeza." class="floating-whatsapp" id="orcamento" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp
+    <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." class="floating-whatsapp" id="orcamento" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> <span>Chamar no WhatsApp</span>
     </a>
 
+    <script>
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 80; 
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
 </body>
 </html>
