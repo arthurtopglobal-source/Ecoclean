@@ -311,14 +311,41 @@
         details[open] summary::after { transform: rotate(180deg); }
         .faq-answer { padding: 0 20px 20px; color: #555; line-height: 1.7; border-top: 1px solid #eee; margin-top: 10px; padding-top: 15px; }
 
+        /* ─── EQUIPAMENTOS E TECNOLOGIA ─── */
+        .equipment-section { padding: 80px 5%; background-color: var(--bg-light); }
+        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .equipment-card { 
+            background: white; padding: 40px 30px; border-radius: 15px; text-align: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid var(--secondary-color);
+        }
+        .equipment-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .equipment-card i { font-size: 3.5rem; color: var(--secondary-color); margin-bottom: 20px; }
+        .equipment-card h3 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 15px; }
+        .equipment-card p { color: #555; font-size: 0.95rem; line-height: 1.6;}
+
         /* ─── CARROSSEL REVIEWS E FOTOS ─── */
+        .social-proof { padding: 80px 0; background-color: white; overflow: hidden; }
+        .social-proof .section-title, .social-proof .section-subtitle { padding: 0 5%; }
         .reviews-strip { display: flex; gap: 20px; padding: 20px 0; overflow: hidden; white-space: nowrap; position: relative; max-width: 100vw; }
         .reviews-strip::before, .reviews-strip::after { content: ''; position: absolute; top: 0; width: 50px; height: 100%; z-index: 2; pointer-events: none;}
+        
         .bg-light-strip::before { left: 0; background: linear-gradient(to right, var(--bg-light), transparent); }
         .bg-light-strip::after { right: 0; background: linear-gradient(to left, var(--bg-light), transparent); }
+        
+        .bg-white-strip::before { left: 0; background: linear-gradient(to right, white, transparent); }
+        .bg-white-strip::after { right: 0; background: linear-gradient(to left, white, transparent); }
+
         .reviews-track { display: flex; gap: 20px; animation: scrollTrack 35s linear infinite; }
         .reviews-strip:hover .reviews-track { animation-play-state: paused; }
         @keyframes scrollTrack { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        .review-card { width: 280px; flex-shrink: 0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;}
+        .review-card img { width: 100%; display: block; object-fit: cover;}
+
+        .review-cta { margin-top: 40px; text-align: center; background: var(--bg-light); padding: 40px 20px; border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto; width: 90%; box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
+        .review-cta h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.8rem; }
+        .btn-google { background-color: white; color: #333; border: 2px solid #ddd; font-weight: bold; padding: 12px 30px; border-radius: 50px; display: inline-block; text-decoration: none; transition: 0.3s; margin-top: 15px; max-width: 100%; white-space: normal;}
+        .btn-google:hover { border-color: #4285F4; background-color: #f4f8ff; transform: translateY(-2px); }
 
         /* ─── RODAPÉ ─── */
         footer { background-color: #1a1a1a; color: white; padding: 60px 5% 20px; }
@@ -397,7 +424,6 @@
         </div>
     </section>
 
-    <!-- NOSSOS SERVIÇOS -->
     <section class="services-section">
         <h2 class="section-title reveal">Nossos Serviços</h2>
         <p class="section-subtitle reveal">Soluções completas para limpeza, proteção e conservação dos seus estofados.</p>
@@ -418,14 +444,13 @@
             </div>
 
             <div class="service-category reveal" style="transition-delay: 0.2s;">
-                <img src="https://i.imgur.com/UOIFioo.jpg" alt="Higienização de Tapetes" class="service-image">
+                <img src="https://i.imgur.com/xh4AW1l.jpg" alt="Higienização de Tapetes" class="service-image">
                 <h3>Higienização de Tapetes</h3>
                 <p>Remoção profunda de sujeira, odores e microrganismos, preservando a textura, a cor e a durabilidade do tapete.</p>
                 <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Tapetes." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="service-category reveal">
-                <!-- Vídeo em Loop -->
                 <video src="https://i.imgur.com/qbBuncp.mp4" autoplay loop muted playsinline class="service-image"></video>
                 <h3>Impermeabilização de Estofados</h3>
                 <p>Proteção avançada que cria uma barreira contra líquidos e sujeiras, facilitando a limpeza e prolongando a vida útil do estofado.</p>
@@ -439,7 +464,6 @@
                 <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Higienização%20de%20Cortinas." target="_blank" class="btn-saiba-mais">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
-            <!-- NOVO SERVIÇO -->
             <div class="service-category reveal" style="transition-delay: 0.2s;">
                 <img src="https://i.imgur.com/BmLviFu.jpg" alt="Auditórios e Salas de Cinema" class="service-image">
                 <h3>Auditórios e Salas de Cinema</h3>
@@ -476,7 +500,6 @@
         </div>
     </section>
 
-    <!-- NOVA SESSÃO: CONHEÇA A ECOCLEAN -->
     <section class="about-section">
         <div class="about-container reveal">
             <div class="about-header">
@@ -518,27 +541,48 @@
         </div>
     </section>
 
-    <!-- QUALIDADE ECOCLEAN (CARROSSEL FOTOS GRANDES E CLICÁVEIS) -->
     <section class="quality-section">
         <h2 class="section-title reveal">Qualidade EcoClean</h2>
         <p class="section-subtitle reveal">Confira o resultado final dos nossos serviços. Clique nas imagens para ampliar e comprove o padrão de excelência.</p>
         
         <div class="reviews-strip bg-light-strip reveal">
             <div class="reviews-track">
-                <!-- Bloco 1 -->
                 <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
                 
-                <!-- Bloco 2 (Para girar sem parar) -->
                 <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
 
-                <!-- Bloco 3 (Para garantir preenchimento) -->
                 <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="equipment-section" id="tecnologia">
+        <h2 class="section-title reveal">Tecnologia e Equipamentos de Ponta</h2>
+        <p class="section-subtitle reveal">Utilizamos o que há de melhor no mercado mundial para garantir resultados impecáveis e total segurança para as suas peças.</p>
+        
+        <div class="equipment-grid">
+            <div class="equipment-card reveal">
+                <i class="fa-solid fa-gauge-high"></i>
+                <h3>Centrífuga Industrial</h3>
+                <p>Nossa Lavfort Spinner 3.5 garante a extração máxima de água dos tapetes, evitando maus odores e proporcionando uma secagem ultrarrápida.</p>
+            </div>
+            
+            <div class="equipment-card reveal" style="transition-delay: 0.1s;">
+                <i class="fa-solid fa-wind"></i>
+                <h3>Extratoras Profissionais</h3>
+                <p>Equipamentos de alta sucção que alcançam as camadas mais profundas do estofado, removendo 99% dos ácaros, fungos e bactérias.</p>
+            </div>
+            
+            <div class="equipment-card reveal" style="transition-delay: 0.2s;">
+                <i class="fa-solid fa-flask-vial"></i>
+                <h3>Produtos Premium</h3>
+                <p>Linha de higienização biodegradável, aprovada pela Anvisa, que não agride as fibras do tecido e é totalmente segura para pets e crianças.</p>
             </div>
         </div>
     </section>
@@ -575,6 +619,41 @@
         </div>
     </section>
 
+    <section class="social-proof">
+        <h2 class="section-title reveal">O que nossos clientes dizem</h2>
+        <p class="section-subtitle reveal">A satisfação de quem já experimentou e aprovou a qualidade EcoClean.</p>
+        
+        <div class="reviews-strip bg-white-strip reveal">
+            <div class="reviews-track">
+                <div class="review-card"><img src="https://i.imgur.com/9nKCwUa.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/MXPqU27.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/XrrY7x0.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/NPRAio3.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/5IQlYIZ.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/q29N6Xt.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/QVedVwW.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/RvwisGJ.png" alt="Avaliação de Cliente"></div>
+                
+                <div class="review-card"><img src="https://i.imgur.com/9nKCwUa.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/MXPqU27.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/XrrY7x0.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/NPRAio3.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/5IQlYIZ.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/q29N6Xt.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/QVedVwW.png" alt="Avaliação de Cliente"></div>
+                <div class="review-card"><img src="https://i.imgur.com/RvwisGJ.png" alt="Avaliação de Cliente"></div>
+            </div>
+        </div>
+
+        <div class="review-cta reveal">
+            <h3>Já é nosso cliente?</h3>
+            <p>Sua opinião é muito importante! Ajude outras pessoas a conhecerem a qualidade do nosso trabalho deixando sua avaliação.</p>
+            <a href="https://g.page/r/Ca_UZukm7wjXEBE/review" target="_blank" class="btn btn-google">
+                <i class="fa-brands fa-google" style="color: #4285F4; margin-right: 8px; font-size: 1.2rem;"></i> Deixe sua avaliação no Google
+            </a>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -597,7 +676,6 @@
                 </a>
             </div>
 
-            <!-- NOVA COLUNA COM HORÁRIOS -->
             <div class="footer-col">
                 <h4>Horário de Atendimento</h4>
                 <ul class="hours-list">
@@ -616,14 +694,12 @@
         </div>
     </footer>
 
-    <!-- Botão Flutuante do WhatsApp -->
     <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." class="floating-whatsapp" id="orcamento" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> <span>Chamar no WhatsApp</span>
     </a>
 
-    <!-- Modal para Expandir Imagens -->
     <div id="imageModal" class="modal">
-        <span class="close-modal">&times;</span>
+        <span class="close-modal">×</span>
         <img class="modal-content" id="expandedImg">
     </div>
 
