@@ -202,7 +202,7 @@
         .service-category h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--text-color); }
         .service-category p { color: #666; font-size: 0.95rem; margin-bottom: 10px; line-height: 1.6; }
 
-        /* ─── BANNERS VIP/DELIVERY ─── */
+        /* ─── BANNERS DESTAQUE (VIP/DELIVERY/TERCEIRIZAÇÃO) ─── */
         .premium-features { 
             display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); 
             gap: 20px; max-width: 1200px; margin: 40px auto 0; 
@@ -212,12 +212,20 @@
             color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: 0.3s; width: 100%;
         }
         .banner:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-        .banner-header { display: flex; align-items: center; gap: 20px; }
-        .banner-vip { background: linear-gradient(135deg, #1a1a1a, #333); border: 1px solid var(--vip-gold); }
-        .banner-vip i, .banner-vip h4 { color: var(--vip-gold); }
-        .banner-delivery { background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); }
+        .banner-header { display: flex; align-items: flex-start; gap: 20px; }
         .banner-header i { font-size: 3rem; flex-shrink: 0; }
         .banner h4 { font-size: 1.4rem; margin-bottom: 8px; line-height: 1.2;}
+
+        /* Variações de Banners */
+        .banner-delivery { background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); }
+        
+        .banner-vip { background: linear-gradient(135deg, #1a1a1a, #333); border: 1px solid var(--vip-gold); }
+        .banner-vip i, .banner-vip h4 { color: var(--vip-gold); }
+        
+        .banner-terceirizacao { background: linear-gradient(135deg, #333, #1a1a1a); }
+        .banner-terceirizacao i, .banner-terceirizacao h4 { color: var(--gold-star); }
+        .link-terceirizacao { color: var(--gold-star); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block; transition: 0.3s;}
+        .link-terceirizacao:hover { opacity: 0.8; }
 
         .vip-mini-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; width: 100%; }
         .vip-mini-gallery img { width: 100%; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); transition: transform 0.3s; }
@@ -384,7 +392,7 @@
             .quality-card { width: 450px; height: 300px; }
         }
         @media (max-width: 600px) {
-            .banner-header { flex-direction: column; text-align: center; }
+            .banner-header { flex-direction: column; text-align: center; align-items: center; }
             .banner-header i { margin-bottom: 10px; }
             .floating-whatsapp { bottom: 20px; right: 20px; padding: 15px; border-radius: 50%; }
             .floating-whatsapp span { display: none; }
@@ -424,6 +432,7 @@
         </div>
     </section>
 
+    <!-- NOSSOS SERVIÇOS -->
     <section class="services-section">
         <h2 class="section-title reveal">Nossos Serviços</h2>
         <p class="section-subtitle reveal">Soluções completas para limpeza, proteção e conservação dos seus estofados.</p>
@@ -451,6 +460,7 @@
             </div>
 
             <div class="service-category reveal">
+                <!-- Vídeo em Loop -->
                 <video src="https://i.imgur.com/qbBuncp.mp4" autoplay loop muted playsinline class="service-image"></video>
                 <h3>Impermeabilização de Estofados</h3>
                 <p>Proteção avançada que cria uma barreira contra líquidos e sujeiras, facilitando a limpeza e prolongando a vida útil do estofado.</p>
@@ -472,7 +482,9 @@
             </div>
         </div>
 
+        <!-- BANNERS DESTAQUE INTEGRADOS NA GRADE -->
         <div class="premium-features">
+            <!-- 1. Banner Delivery -->
             <div class="banner banner-delivery reveal">
                 <div class="banner-header">
                     <i class="fa-solid fa-truck-fast"></i>
@@ -483,12 +495,13 @@
                 </div>
             </div>
 
+            <!-- 2. Banner VIP -->
             <div class="banner banner-vip reveal" style="transition-delay: 0.1s;">
                 <div class="banner-header">
                     <i class="fa-solid fa-crown"></i>
                     <div>
                         <h4>Sala VIP Exclusiva</h4>
-                        <p>Ambiente climatizado e confortável com mesa de sinuca aguardando por você.</p>
+                        <p>Ambiente climatizado e confortável com mesa de sinuca aguardando por você enquanto atendemos.</p>
                     </div>
                 </div>
                 <div class="vip-mini-gallery">
@@ -497,9 +510,25 @@
                     <img src="https://i.imgur.com/woBBiC8.jpg" alt="Mesa de Sinuca">
                 </div>
             </div>
+
+            <!-- 3. Banner Terceirização (Adicionado perfeitamente aqui) -->
+            <div class="banner banner-terceirizacao reveal" style="transition-delay: 0.2s;">
+                <div class="banner-header">
+                    <i class="fa-solid fa-handshake"></i>
+                    <div>
+                        <h4>Terceirização de Serviços</h4>
+                        <p>Se você é higienizador e precisa de um lugar para lavar os tapetes dos seus clientes, nós ajudamos você!</p>
+                        <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20como%20funciona%20a%20Terceirização%20de%20Serviços." target="_blank" class="link-terceirizacao">
+                            Saiba como funciona <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
+    <!-- SESSÃO SOBRE A ECOCLEAN -->
     <section class="about-section">
         <div class="about-container reveal">
             <div class="about-header">
@@ -541,20 +570,24 @@
         </div>
     </section>
 
+    <!-- QUALIDADE ECOCLEAN (CARROSSEL FOTOS GRANDES E CLICÁVEIS) -->
     <section class="quality-section">
         <h2 class="section-title reveal">Qualidade EcoClean</h2>
         <p class="section-subtitle reveal">Confira o resultado final dos nossos serviços. Clique nas imagens para ampliar e comprove o padrão de excelência.</p>
         
         <div class="reviews-strip bg-light-strip reveal">
             <div class="reviews-track">
+                <!-- Bloco 1 -->
                 <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
                 
+                <!-- Bloco 2 (Para girar sem parar) -->
                 <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
 
+                <!-- Bloco 3 (Para garantir preenchimento) -->
                 <div class="quality-card"><img src="https://i.imgur.com/8N8CArq.jpg" alt="Resultado Limpeza EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/G0bKUzK.jpg" alt="Limpeza de Estofado EcoClean"></div>
                 <div class="quality-card"><img src="https://i.imgur.com/KQRR2U0.jpg" alt="Higienização Completa EcoClean"></div>
@@ -562,6 +595,7 @@
         </div>
     </section>
 
+    <!-- EQUIPAMENTOS E TECNOLOGIA -->
     <section class="equipment-section" id="tecnologia">
         <h2 class="section-title reveal">Tecnologia e Equipamentos de Ponta</h2>
         <p class="section-subtitle reveal">Utilizamos o que há de melhor no mercado mundial para garantir resultados impecáveis e total segurança para as suas peças.</p>
@@ -587,6 +621,7 @@
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq-section">
         <h2 class="section-title reveal">Dúvidas Frequentes</h2>
         <p class="section-subtitle reveal">Tudo o que você precisa saber sobre nossos serviços de higienização.</p>
@@ -619,6 +654,7 @@
         </div>
     </section>
 
+    <!-- CARROSSEL DE AVALIAÇÕES DOS CLIENTES -->
     <section class="social-proof">
         <h2 class="section-title reveal">O que nossos clientes dizem</h2>
         <p class="section-subtitle reveal">A satisfação de quem já experimentou e aprovou a qualidade EcoClean.</p>
@@ -654,6 +690,7 @@
         </div>
     </section>
 
+    <!-- RODAPÉ -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -694,10 +731,12 @@
         </div>
     </footer>
 
+    <!-- Botão Flutuante do WhatsApp -->
     <a href="https://api.whatsapp.com/send?phone=5598988106716&text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." class="floating-whatsapp" id="orcamento" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> <span>Chamar no WhatsApp</span>
     </a>
 
+    <!-- Modal para Expandir Imagens -->
     <div id="imageModal" class="modal">
         <span class="close-modal">×</span>
         <img class="modal-content" id="expandedImg">
